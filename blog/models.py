@@ -12,6 +12,8 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.blocks import SnippetChooserBlock
 
+from wagtail.api import APIField
+
 class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
@@ -32,6 +34,12 @@ class BlogPage(Page):
         StreamFieldPanel('body'),
     ]
 
+    api_fields = [
+        APIField('date'),
+        APIField('intro'),
+        APIField('body'),
+    ]
+
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
 
@@ -41,6 +49,10 @@ class BlogIndexPage(Page):
         blogpages = self.get_children().live().order_by('-first_published_at')
         context['blogpages'] = blogpages
         return context
+
+    api_fields = [
+        APIField('intro'),
+    ]
 
 
 @register_snippet
@@ -75,6 +87,13 @@ class Recipe(models.Model):
         ImageChooserPanel('image'),
         StreamFieldPanel('ingredients'),
         StreamFieldPanel('instructions'),
+    ]
+
+    api_fields = [
+        APIField('title'),
+        APIField('image'),
+        APIField('ingredients'),
+        APIField('instructions'),
     ]
 
     def __str__(self):

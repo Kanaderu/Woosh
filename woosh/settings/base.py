@@ -25,6 +25,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     'graphene_django',
+    'rest_framework',
 
     'home',
     'search',
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+
+    'wagtail.api.v2',
 
     'modelcluster',
     'taggit',
