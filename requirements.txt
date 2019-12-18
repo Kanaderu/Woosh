@@ -2,3 +2,4 @@ Django>=2.2,<2.3
 graphene-django==2.6.0
 wagtail>=2.7,<2.8
 wagtailcodeblock==1.17.1.0
+django-webpack-loader==0.6.0
