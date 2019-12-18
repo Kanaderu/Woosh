@@ -1,46 +1,129 @@
 from django.db import models
+from django.db.models import Count, Q
+
+from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
+
+from wagtail.core import blocks
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
+
+from wagtail.admin.edit_handlers import (
+    FieldPanel, InlinePanel, MultiFieldPanel, FieldRowPanel, StreamFieldPanel)
+
+from wagtail.images import get_image_model_string
+from wagtail.images.edit_handlers import ImageChooserPanel
+
 from wagtail.search import index
 
-from wagtail.core.fields import RichTextField, StreamField
-from wagtail.core import blocks
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
-
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.blocks import SnippetChooserBlock
 
 from wagtail.api import APIField
 
+import datetime
+
+from woosh.editor import STANDARD_BLOCKS
+
+
+def limit_author_choices():
+    """ Limit choices in blog author field based on config settings """
+    LIMIT_AUTHOR_CHOICES = getattr(settings, 'BLOG_LIMIT_AUTHOR_CHOICES_GROUP', None)
+    if LIMIT_AUTHOR_CHOICES:
+        if isinstance(LIMIT_AUTHOR_CHOICES, str):
+            limit = Q(groups__name=LIMIT_AUTHOR_CHOICES)
+        else:
+            limit = Q()
+            for s in LIMIT_AUTHOR_CHOICES:
+                limit = limit | Q(groups__name=s)
+        if getattr(settings, 'BLOG_LIMIT_AUTHOR_CHOICES_ADMIN', False):
+            limit = limit | Q(is_staff=True)
+    else:
+        limit = {'is_staff': True}
+    return limit
+
+
 class BlogPage(Page):
-    date = models.DateField("Post date")
-    intro = models.CharField(max_length=250)
+    # page fields
+    date = models.DateField(
+        _('Post date'),
+        default=datetime.datetime.today,
+        help_text=_('Date displayed on the blog post.')
+    )
+    intro = models.CharField(max_length=250, help_text=_('Summary Text (max 250 characters'))
+    body = StreamField(STANDARD_BLOCKS)
+    '''
     body = StreamField([
-        ('heading', blocks.CharBlock(classname="full title")),
+        ('heading', blocks.CharBlock(classname='full title')),
         ('paragraph', blocks.RichTextBlock()),
         ('recipe', SnippetChooserBlock('blog.Recipe')), # Add this line
     ])
+    '''
+    header_image = models.ForeignKey(
+        get_image_model_string(),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name=_('Header Image'),
+        help_text=_('Header Landing Image')
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        blank=True, null=True,
+        limit_choices_to=limit_author_choices,
+        verbose_name=_('Author'),
+        on_delete=models.SET_NULL,
+        related_name='author_pages',
+    )
 
+    # define content_panels (content tab)
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('date'),
+                ImageChooserPanel('header_image'),
+            ]),
+        ], heading=_('Metadata')),
+        FieldPanel('intro'),
+        StreamFieldPanel('body'),
+    ]
+
+    # define promote_panels (promote tab)
+    promote_panels = Page.promote_panels + [
+
+    ]
+
+    # define settings_panels (settings tab)
+    settings_panels = Page.settings_panels + [
+        FieldPanel('date'),
+        FieldPanel('author'),
+    ]
+
+    # define search_fields
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
         index.SearchField('body'),
     ]
 
-    content_panels = Page.content_panels + [
-        FieldPanel('date'),
-        FieldPanel('intro'),
-        StreamFieldPanel('body'),
-    ]
+    # define parents
+    parent_pages_types = ['blog.BlogIndexPage']
 
+    # define api_fields
     api_fields = [
         APIField('date'),
         APIField('intro'),
         APIField('body'),
     ]
 
+    # define verbose names
+    class Meta:
+        verbose_name = _('Blog Page')
+        verbose_name_plural = _('Blog Pages')
+
+
 class BlogIndexPage(Page):
+    # page fields
     intro = RichTextField(blank=True)
 
     def get_context(self, request):
@@ -50,6 +133,7 @@ class BlogIndexPage(Page):
         context['blogpages'] = blogpages
         return context
 
+    # define api_fields
     api_fields = [
         APIField('intro'),
     ]
@@ -57,6 +141,7 @@ class BlogIndexPage(Page):
 
 @register_snippet
 class Recipe(models.Model):
+    # model fields
     title = models.CharField(max_length=255)
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -72,9 +157,9 @@ class Recipe(models.Model):
             ('unit', blocks.ChoiceBlock(choices=[
                 ('none', '(no unit)'),
                 ('g', 'Grams (g)'),
-                ('ml', 'Millilitre (ml)'),
-                ('tsp', 'Teaspoon (tsp.)'),
-                ('tbsp', 'Tablespoon (tbsp.)'),
+                ('ml', 'Milliliters (ml)'),
+                ('tsp', 'Teaspoons (tsp.)'),
+                ('tbsp', 'Tablespoons (tbsp.)'),
             ]))
         ]))
     ])
@@ -82,6 +167,7 @@ class Recipe(models.Model):
         ('instruction', blocks.TextBlock()),
     ])
 
+    # define snippet panels
     panels = [
         FieldPanel('title'),
         ImageChooserPanel('image'),
@@ -89,6 +175,7 @@ class Recipe(models.Model):
         StreamFieldPanel('instructions'),
     ]
 
+    # define api_fields
     api_fields = [
         APIField('title'),
         APIField('image'),

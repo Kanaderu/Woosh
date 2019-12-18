@@ -33,6 +33,15 @@ INSTALLED_APPS = [
     'frontend',
     'api',
 
+    'template_apps.katex',
+    'template_apps.markdown',
+    'template_apps.prism',
+    'template_apps.snap-svg',
+
+    'wagtailcodeblock',
+    'wagtail.contrib.styleguide',
+    'wagtail.contrib.table_block',
+
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
