@@ -38,7 +38,8 @@ def editor_css():
 
 @hooks.register('insert_editor_css')
 def admin_editor_css():
-    return format_html('<link rel="stylesheet" href="{}" />', static('css/ElysiumServer.css'))
+    #return format_html('<link rel="stylesheet" href="{}" />', static('css/ElysiumServer.css'))
+    return format_html('')
 
 
 # 1. Use the register_rich_text_features hook.

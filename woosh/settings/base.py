@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'frontend',
     'api',
 
+    'template_apps.fontawesome',
     'template_apps.katex',
     'template_apps.markdown',
     'template_apps.prism',
