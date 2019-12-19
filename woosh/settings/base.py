@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'template_apps.prism',
     'template_apps.snap-svg',
 
+    'webpack_loader',
     'wagtailcodeblock',
     'wagtail.contrib.styleguide',
     'wagtail.contrib.table_block',
