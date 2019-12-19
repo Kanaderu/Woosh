@@ -11,6 +11,9 @@ from search import views as search_views
 urlpatterns = [
     url(r'^django-admin/', admin.site.urls),
 
+    # frontend urls
+    url(r'', include('frontend.urls')),
+
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 
@@ -26,9 +29,6 @@ urlpatterns = [
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:
     #    url(r'^pages/', include(wagtail_urls)),
-
-    # frontend urls
-    url('', include('frontend.urls')),
 ]
 
 
