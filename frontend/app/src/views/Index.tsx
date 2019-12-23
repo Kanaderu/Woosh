@@ -4,8 +4,12 @@ import React from "react";
 // import {
 // } from "reactstrap";
 
-import ColorNavbar from '../components/Navbar/ColorNavbar';
+import ColorNavbar from '../components/Navbar/Navbar';
 import Header from '../components/Header/Header';
+import SectionButtons from './index-sections/SectionButtons.js';
+import SectionNavigation from './index-sections/SectionNavigation.js';
+
+//import Headroom from 'react-headroom'
 /*
 // core components
 import IndexHeader from "components/Headers/IndexHeader.js";
@@ -36,10 +40,15 @@ function Index() {
       document.body.classList.remove("index-page");
     };
   });
+    //<ColorNavbar />
   return (
     <>
       <ColorNavbar />
       <Header />
+      <div className="main">
+        <SectionButtons />
+        <SectionNavigation />
+      </div>
     </>
   );
 }

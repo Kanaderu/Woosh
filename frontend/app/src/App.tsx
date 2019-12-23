@@ -16,8 +16,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" render={props => <Index {...props} />} />
-          <Redirect to="/" />
+          <Route path='/' component={Index} />
+          {/*<Route path="/" render={props => <Index {...props} />} />*/}
+          <Redirect to='/' />
         </Switch>
       </BrowserRouter>
     );

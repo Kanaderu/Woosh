@@ -9,6 +9,7 @@ import background from '../../assets/img/sections/uriel-soberanes.jpg';
 function Header() {
   let pageHeader = React.createRef();
 
+  /*
   React.useEffect(() => {
     if (window.innerWidth > 991) {
       const updateScroll = () => {
@@ -22,12 +23,12 @@ function Header() {
       };
     }
   });
-
+  */
   return (
     <>
       <div
         className="page-header"
-        ref={pageHeader}
+        //ref={pageHeader}
         style={{
           backgroundImage:
             "url(" + background + ")"
