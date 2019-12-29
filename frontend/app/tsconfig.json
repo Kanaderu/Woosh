@@ -21,6 +21,7 @@
   },
   "include": [
     "src",
-    "src/declarations.d.ts"
+    "src/declarations.d.ts",
+    "src/externals.d.ts"
   ]
 }

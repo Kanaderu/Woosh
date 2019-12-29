@@ -6,7 +6,7 @@ import React from "react";
 
 import ColorNavbar from '../components/Navbar/Navbar';
 import Header from '../components/Header/Header';
-import SectionButtons from './index-sections/SectionButtons.js';
+import SectionButtons from './index-sections/SectionButtons';
 import SectionNavigation from './index-sections/SectionNavigation.js';
 
 //import Headroom from 'react-headroom'
