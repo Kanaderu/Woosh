@@ -6,6 +6,8 @@ import Select from "react-select";
 // react plugin used to create switch buttons
 import Switch from "react-bootstrap-switch";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 // reactstrap components
 import {
   Badge,
@@ -97,7 +99,7 @@ function SectionButtons() {
                   Round
                 </Button>
                 <Button className="btn-round mr-1" color="info" type="button">
-                  <i className="fa fa-heart mr-1" />
+                  <FontAwesomeIcon icon="heart" />
                   With Icon
                 </Button>
                 <Button
@@ -105,7 +107,7 @@ function SectionButtons() {
                   color="info"
                   type="button"
                 >
-                  <i className="fa fa-heart" />
+                  <FontAwesomeIcon icon="heart" />
                 </Button>
                 <Button className="btn-link" color="info" type="button">
                   Simple
@@ -318,7 +320,7 @@ function SectionButtons() {
                   color="default"
                   type="button"
                 >
-                  <i className="fa fa-twitter" />
+                  <FontAwesomeIcon icon={['fab', 'twitter']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon mr-1"
@@ -326,14 +328,14 @@ function SectionButtons() {
                   outline
                   type="button"
                 >
-                  <i className="fa fa-twitter" />
+                  <FontAwesomeIcon icon={['fab', 'twitter']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon mr-1"
                   color="link"
                   type="button"
                 >
-                  <i className="fa fa-twitter" />
+                  <FontAwesomeIcon icon={['fab', 'twitter']} size='2x' />
                 </Button>
                 <Button
                   className="btn-round mr-1"
@@ -395,37 +397,38 @@ function SectionButtons() {
             <Row>
               <Col md="8">
                 <Button className="btn-just-icon mr-1" color="twitter">
-                  <i className="fa fa-twitter" />
+                  <FontAwesomeIcon icon={['fab', 'twitter']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="facebook">
-                  <i className="fa fa-facebook" />
+                  <FontAwesomeIcon icon="facebook" />
+                  <FontAwesomeIcon icon={['fab', 'facebook-f']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="google">
-                  <i className="fa fa-google-plus" />
+                  <FontAwesomeIcon icon={['fab', 'google-plus']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="linkedin">
-                  <i className="fa fa-linkedin" />
+                  <FontAwesomeIcon icon={['fab', 'linkedin']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="pinterest">
-                  <i className="fa fa-pinterest-p" />
+                  <FontAwesomeIcon icon={['fab', 'pinterest-p']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="youtube">
-                  <i className="fa fa-youtube" />
+                  <FontAwesomeIcon icon={['fab', 'youtube']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="tumblr">
-                  <i className="fa fa-tumblr" />
+                  <FontAwesomeIcon icon={['fab', 'tumblr']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="github">
-                  <i className="fa fa-github-alt" />
+                  <FontAwesomeIcon icon={['fab', 'github-alt']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="dribbble">
-                  <i className="fa fa-dribbble" />
+                  <FontAwesomeIcon icon={['fab', 'dribbble']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon mr-1" color="reddit">
-                  <i className="fa fa-reddit-alien" />
+                  <FontAwesomeIcon icon={['fab', 'reddit-alien']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon" color="instagram">
-                  <i className="fa fa-instagram" />
+                  <FontAwesomeIcon icon={['fab', 'instagram']} size='lg' />
                 </Button>
               </Col>
             </Row>
@@ -440,64 +443,64 @@ function SectionButtons() {
                   className="btn-just-icon btn-border mr-1"
                   color="twitter"
                 >
-                  <i className="fa fa-twitter" />
+                  <FontAwesomeIcon icon={['fab', 'twitter']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="facebook"
                 >
-                  <i className="fa fa-facebook" />
+                  <FontAwesomeIcon icon={['fab', 'facebook-f']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="google"
                 >
-                  <i className="fa fa-google-plus" />
+                  <FontAwesomeIcon icon={['fab', 'google-plus']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="linkedin"
                 >
-                  <i className="fa fa-linkedin" />
+                  <FontAwesomeIcon icon={['fab', 'linkedin']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="pinterest"
                 >
-                  <i className="fa fa-pinterest-p" />
+                  <FontAwesomeIcon icon={['fab', 'pinterest-p']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="youtube"
                 >
-                  <i className="fa fa-youtube" />
+                  <FontAwesomeIcon icon={['fab', 'youtube']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="tumblr"
                 >
-                  <i className="fa fa-tumblr" />
+                  <FontAwesomeIcon icon={['fab', 'tumblr']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-borde mr-1r"
                   color="github"
                 >
-                  <i className="fa fa-github-alt" />
+                  <FontAwesomeIcon icon={['fab', 'github-alt']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="dribbble"
                 >
-                  <i className="fa fa-dribbble" />
+                  <FontAwesomeIcon icon={['fab', 'dribbble']} size='lg' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-border mr-1"
                   color="reddit"
                 >
-                  <i className="fa fa-reddit-alien" />
+                  <FontAwesomeIcon icon={['fab', 'reddit-alien']} size='lg' />
                 </Button>
                 <Button className="btn-just-icon btn-border" color="instagram">
-                  <i className="fa fa-instagram" />
+                  <FontAwesomeIcon icon={['fab', 'instagram']} size='lg' />
                 </Button>
               </Col>
             </Row>
@@ -509,52 +512,47 @@ function SectionButtons() {
             <Row>
               <Col md="8">
                 <Button className="btn-just-icon btn-link mr-1" color="twitter">
-                  <i className="fa fa-twitter" />
+                  <FontAwesomeIcon icon={['fab', 'twitter']} size='2x' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-link mr-1"
                   color="facebook"
                 >
-                  <i className="fa fa-facebook" />
+                  <FontAwesomeIcon icon={['fab', 'facebook']} size='2x' />
                 </Button>
                 <Button className="btn-just-icon btn-link mr-1" color="google">
-                  <i className="fa fa-google-plus" />
+                  <FontAwesomeIcon icon={['fab', 'google-plus']} size='2x' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-link mr-1"
                   color="linkedin"
                 >
-                  <i className="fa fa-linkedin" />
+                  <FontAwesomeIcon icon={['fab', 'linkedin']} size='2x' />
                 </Button>
                 <Button
                   className="btn-just-icon btn-link mr-1"
                   color="pinterest"
                 >
-                  <i className="fa fa-pinterest-p" />
+                  <FontAwesomeIcon icon={['fab', 'pinterest-p']} size='2x' />
                 </Button>
                 <Button className="btn-just-icon btn-link mr-1" color="youtube">
-                  <i className="fa fa-youtube" />
+                  <FontAwesomeIcon icon={['fab', 'youtube']} size='2x' />
                 </Button>
                 <Button className="btn-just-icon btn-link mr-1" color="tumblr">
-                  <i className="fa fa-tumblr" />
+                  <FontAwesomeIcon icon={['fab', 'tumblr']} size='2x' />
                 </Button>
                 <Button className="btn-just-icon btn-link mr-1" color="github">
-                  <i className="fa fa-github-alt" />
+                  <FontAwesomeIcon icon={['fab', 'github-alt']} size='2x' />
                 </Button>
-                <Button
-                  className="btn-just-icon btn-link mr-1"
-                  color="dribbble"
+                <Button className="btn-just-icon btn-link mr-1" color="dribbble"
                 >
-                  <i className="fa fa-dribbble" />
+                  <FontAwesomeIcon icon={['fab', 'dribbble']} size='2x' />
                 </Button>
                 <Button className="btn-just-icon btn-link mr-1" color="reddit">
-                  <i className="fa fa-reddit-alien" />
+                  <FontAwesomeIcon icon={['fab', 'reddit-alien']} size='2x' />
                 </Button>
-                <Button
-                  className="btn-just-icon btn-link mr-1"
-                  color="instagram"
-                >
-                  <i className="fa fa-instagram" />
+                <Button className="btn-just-icon btn-link mr-1" color="instagram">
+                  <FontAwesomeIcon icon={['fab', 'instagram']} size='2x' />
                 </Button>
               </Col>
             </Row>
@@ -624,7 +622,7 @@ function SectionButtons() {
                   <Input placeholder="Group Addon" type="text" />
                   <InputGroupAddon addonType="append">
                     <InputGroupText>
-                      <i className="fa fa-group" />
+                      <FontAwesomeIcon icon='users' />
                     </InputGroupText>
                   </InputGroupAddon>
                 </InputGroup>
@@ -646,7 +644,7 @@ function SectionButtons() {
                   <Input disabled placeholder="Group Disabled" type="text" />
                   <InputGroupAddon addonType="append">
                     <InputGroupText>
-                      <i className="fa fa-group" />
+                      <FontAwesomeIcon icon='users' />
                     </InputGroupText>
                   </InputGroupAddon>
                 </InputGroup>
@@ -942,22 +940,22 @@ function SectionButtons() {
               </h3>
             </div>
             <Badge className="mr-1" pill>
-              <i className="fa fa-unlock-alt" />
+              <FontAwesomeIcon icon='unlock-alt' />
             </Badge>
             <Badge className="mr-1" color="primary" pill>
-              <i className="fa fa-id-card-o" />
+              <FontAwesomeIcon icon='id-card-alt' />
             </Badge>
             <Badge className="mr-1" color="info" pill>
-              <i className="fa fa-info" />
+              <FontAwesomeIcon icon='info' />
             </Badge>
             <Badge className="mr-1" color="success" pill>
-              <i className="fa fa-comments" />
+              <FontAwesomeIcon icon='comments' />
             </Badge>
             <Badge className="mr-1" color="warning" pill>
-              <i className="fa fa-cog" />
+              <FontAwesomeIcon icon='cog' />
             </Badge>
             <Badge color="danger" pill>
-              <i className="fa fa-battery-half" />
+              <FontAwesomeIcon icon='battery-half' />
             </Badge>
           </div>
           <div id="tags">

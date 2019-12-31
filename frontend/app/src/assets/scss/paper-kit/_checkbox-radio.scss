@@ -5,6 +5,8 @@
 }
 
 .form-check {
+  @extend %fa-icon;
+  @extend .fas;
   padding-left: 0;
   margin-bottom: .5rem;
 
@@ -36,8 +38,8 @@
         transition: opacity 0.3s linear;
     }
     .form-check-sign::after {
-        font-family: 'FontAwesome';
-        content: "\f00c";
+        font-family: 'Font Awesome 5 Free';
+        content: fa-content($fa-var-check);
         top: -1px;
         text-align: center;
         font-size: 15px;
@@ -97,8 +99,8 @@
 }
 
 .form-check-radio .form-check-sign::before{
-    font-family: 'FontAwesome';
-    content: "\f10c";
+    font-family: 'Font Awesome 5 Free';
+    content: fa-content($fa-var-circle);
     font-size: 22px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -122,8 +124,8 @@
 }
 
 .form-check-radio input[type="radio"]:checked + .form-check-sign::after {
-    font-family: 'FontAwesome';
-    content: "\f192";
+    font-family: 'Font Awesome 5 Free';
+    content: fa-content($fa-var-dot-circle);
     top: -5px;
     position: absolute;
     left: 5px;

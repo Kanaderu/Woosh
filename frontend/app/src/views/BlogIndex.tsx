@@ -41,38 +41,35 @@ import SectionJavaScript from "./index-sections/SectionJavaScript.js";
 import SectionCards from "./index-sections/SectionCards.js";
 */
 
-function Index() {
-  document.documentElement.classList.remove("nav-open");
-  React.useEffect(() => {
-    document.body.classList.add("index-page");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    return function cleanup() {
-      document.body.classList.remove("index-page");
-    };
-  });
-    //<ColorNavbar />
-  return (
+type BlogIndexProps = {
+  // using `interface` is also ok
+  message: string;
+};
+
+type BlogIndexState = {
+  count: number; // like this
+};
+
+class BlogIndex extends React.Component<BlogIndexProps, BlogIndexState> {
+  state: BlogIndexState = {
+    // optional second annotation for better type inference
+    count: 0
+  };
+
+  public componentDidMount() {
+    this.setState(state => ({count: 3}));
+  };
+
+
+  public render() {
+    console.log("state is " + this.state.count)
+    return (
     <>
       <ColorNavbar />
       <Header />
-      <div className="main">
-        <SectionButtons />
-        <SectionNavigation />
-      </div>
-      <SectionNavbars />
-      <SectionPreFooterAreas />
-      <SectionFooterAreas />
-      <SectionDescriptionAreas />
-      <SectionTypography />
-      <SectionNotification />
-      <SectionTables />
-      <SectionComments />
-      <SectionCommentsAreaSmall />
-      {/*<SectionJavaScript />*/}
-      <SectionCards />
     </>
-  );
+    );
+  };
 }
 
-export default Index;
+export default BlogIndex;
