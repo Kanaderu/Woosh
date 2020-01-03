@@ -3,14 +3,25 @@ import React from "react";
 // reactstrap components
 import { Badge, Button, Card, Media, Container, Row, Col } from "reactstrap";
 
+import johnTower from '../assets/img/sections/john-towner.jpg';
+import danielOlahs from '../assets/img/sections/daniel-olahs.jpg';
+import sebastienGabrieles from '../assets/img/sections/sebastien-gabrieles.jpg';
+
+import useGetBlogPostService from '../api/useGetBlogPostService';
+
 // core components
 //import ColorNavbar from "components/Navbars/ColorNavbar.js";
-import Header from '../components/Header/Header';
+//import Header from '../components/Header/Header';
+import BlogPostHeader from '../components/Header/BlogPostHeader';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
-function BlogPost() {
-  document.documentElement.classList.remove("nav-open");
+const BlogPost: React.FC<{}> = () => {
+
+  const service = useGetBlogPostService(3);
+  console.log(service)
+
+  document.documentElement!.classList.remove("nav-open");
   React.useEffect(() => {
     document.body.classList.add("blog-post");
     window.scrollTo(0, 0);
@@ -19,10 +30,11 @@ function BlogPost() {
       document.body.classList.remove("blog-post");
     };
   });
+
   return (
     <>
       <Navbar />
-      <Header />
+      {service.status === 'loaded' && <BlogPostHeader title={service.payload.title} /> }
       <div className="wrapper">
         <div className="main">
           <div className="section section-white">
@@ -55,9 +67,7 @@ function BlogPost() {
                       data-radius="none"
                       style={{
                         backgroundImage:
-                          "url(" +
-                          require("../assets/img/sections/daniel-olahs.jpg") +
-                          ")"
+                          "url(" + danielOlahs + ")"
                       }}
                     />
                     <p className="image-thumb text-center">
@@ -103,9 +113,7 @@ function BlogPost() {
                             data-radius="none"
                             style={{
                               backgroundImage:
-                                "url(" +
-                                require("../assets/img/sections/sebastien-gabrieles.jpg") +
-                                ")"
+                                "url(" + sebastienGabrieles + ")"
                             }}
                           />
                           {/* end card */}
@@ -117,9 +125,7 @@ function BlogPost() {
                             data-radius="none"
                             style={{
                               backgroundImage:
-                                "url(" +
-                                require("../assets/img/sections/john-towner.jpg") +
-                                ")"
+                                "url(" + johnTower + ")"
                             }}
                           />
                         </a>
@@ -214,6 +220,7 @@ function BlogPost() {
                   </div>
                   <hr />
                   <Container>
+                   {/*
                     <Row>
                       <Media>
                         <a
@@ -330,10 +337,10 @@ function BlogPost() {
                                 <p>Don't forget, You're Awesome!</p>
                               </Media>
                             </Media>
-                            {/* end media */}
+
                           </Media>
                         </Media>
-                        {/* end media */}
+
                         <Media>
                           <a
                             className="pull-left"
@@ -372,13 +379,15 @@ function BlogPost() {
                             <p>Don't forget, You're Awesome!</p>
                           </Media>
                         </Media>
-                        {/* end media */}
+
                       </div>
                     </Row>
+                    */}
                   </Container>
                 </Col>
               </Row>
               <Row>
+                {/*
                 <div className="related-articles">
                   <h3 className="title">Related articles</h3>
                   <legend />
@@ -422,6 +431,7 @@ function BlogPost() {
                     </Row>
                   </Container>
                 </div>
+                */}
               </Row>
             </Container>
           </div>

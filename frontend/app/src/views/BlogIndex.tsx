@@ -23,13 +23,15 @@ const BlogIndex: React.FC<{}> = () => {
   const service = useGetBlogIndexService();
 
   document.documentElement!.classList.remove("nav-open");
-  document.body.classList.add("blog-posts");
-  window.scrollTo(0, 0);
-  document.body.scrollTop = 0;
-  console.log(service.status);
-  if(service.status === 'loaded'){
-    console.log(service.payload);
-  }
+  React.useEffect(() => {
+    document.body.classList.add("blog-posts");
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+  return function cleanup() {
+    document.body.classList.remove("blog-post");
+  };
+});
+
   return (
     <>
       <Navbar />
@@ -139,95 +141,6 @@ const BlogIndex: React.FC<{}> = () => {
                 <div>Error, the backend moved to the dark side.</div>
               )
               }
-              <hr />
-              <br />
-              <br />
-              <div className="article">
-                <Row>
-                  <Col className="ml-auto mr-auto" md="8">
-                    <Card className="card-blog card-plain text-center">
-                      <div className="card-image">
-                        <a href="#pablo" onClick={e => e.preventDefault()}>
-                          <img
-                            alt="..."
-                            className="img img-raised"
-                            src={require("../assets/img/sections/federico-beccari.jpg")}
-                          />
-                        </a>
-                      </div>
-                      <CardBody>
-                        <div className="card-category">
-                          <Badge className="main-tag" color="info">
-                            Popular
-                          </Badge>
-                        </div>
-                        <a href="javascrip: void(0);">
-                          <CardTitle tag="h3">
-                            You Should Get Excited About Virtual Reality.
-                          </CardTitle>
-                          <h6 className="title-uppercase">October 20, 2016</h6>
-                        </a>
-                        <div className="card-description">
-                          <p>
-                            In the first sentence of Pitchfork’s review of my
-                            collaborative project with 9th Wonder, INDIE 500, a
-                            reviewer who is associated with music review site
-                            rhapsody.com writes about how I criticize and then
-                            distance myself from “celebrity straw men” with the
-                            line “celebrities be making money...
-                          </p>
-                        </div>
-                      </CardBody>
-                      <Button className="btn-round" color="danger" size="sm">
-                        Read more
-                      </Button>
-                    </Card>
-                  </Col>
-                </Row>
-              </div>
-              <hr />
-              <br />
-              <br />
-              <div className="article">
-                <Col className="ml-auto mr-auto" md="8">
-                  <Card className="card-blog card-plain text-center">
-                    <div className="card-image">
-                      <a href="#pablo" onClick={e => e.preventDefault()}>
-                        <img
-                          alt="..."
-                          className="img img-raised"
-                          src={require("../assets/img/sections/leonard-cotte.jpg")}
-                        />
-                        <p className="image-thumb">Photo by Cam Adams</p>
-                      </a>
-                    </div>
-                    <CardBody>
-                      <div className="card-category">
-                        <Badge className="main-tag" color="warning">
-                          Trending
-                        </Badge>
-                      </div>
-                      <a href="javascrip: void(0);">
-                        <CardTitle tag="h3">
-                          Make Somebody Nervous Before You Die
-                        </CardTitle>
-                        <h6 className="title-uppercase">October 20, 2016</h6>
-                      </a>
-                      <div className="card-description">
-                        <p>
-                          You won’t find many concepts that are very useful or
-                          important if you insist on having a worldview that’s
-                          void of controversy, invulnerable to criticism, and
-                          incapable of making others feel confused...
-                        </p>
-                      </div>
-                    </CardBody>
-                    <Button className="btn-round" color="danger" size="sm">
-                      Read more
-                    </Button>
-                  </Card>
-                </Col>
-              </div>
               <hr />
               <Row>
                 <Col md="12">

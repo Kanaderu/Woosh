@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
 import { Service } from '../types/Service';
-import { BlogIndexAPI } from '../types/BlogIndexAPI';
 
+import { BlogPostAPI } from '../types/BlogPostAPI';
 import Settings from '../constants';
 
 /*
-export interface BlogIndexService {
-  results: BlogIndexAPI;
+export interface BlogPostService {
+  results: BlogPostAPI;
 }
 */
 
-const useGetBlogIndexService = () => {
-  const [result, setResult] = useState<Service<BlogIndexAPI>>({
+const useGetBlogPostService = (id:number) => {
+  const [result, setResult] = useState<Service<BlogPostAPI>>({
     status: 'loading'
   });
 
   useEffect(() => {
-    fetch(Settings.blogIndexEndpointAPI)
+    fetch(Settings.blogPostEndpointAPI(id))
       .then(response => response.json())
       .then(response => setResult({
         status: 'loaded',
@@ -31,4 +31,4 @@ const useGetBlogIndexService = () => {
   return result;
 };
 
-export default useGetBlogIndexService;
+export default useGetBlogPostService;
