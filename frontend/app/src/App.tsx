@@ -3,6 +3,10 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import Index from './views/Index';
 import BlogIndex from './views/BlogIndex';
+import BlogPost from './views/BlogPost';
+import NucleoIcons from './views/NucleoIcons';
+import Presentation from './views/Presentation';
+import Sections from './views/Sections';
 
 //import Header from './components/Header/Header';
 //import Footer from './components/Footer/Footer';
@@ -23,7 +27,11 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route path='/blog' component={BlogIndex} />
+          <Route path='/post' component={BlogPost} />
           <Route path='/home' component={Index} />
+          <Route path='/icons' component={NucleoIcons} />
+          <Route path='/presentation' component={Presentation} />
+          <Route path='/sections' component={Sections} />
           {/*<Route path="/" render={props => <Index {...props} />} />*/}
           <Redirect to='/blog' />
         </Switch>

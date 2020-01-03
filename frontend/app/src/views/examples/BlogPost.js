@@ -4,9 +4,9 @@ import React from "react";
 import { Badge, Button, Card, Media, Container, Row, Col } from "reactstrap";
 
 // core components
-//import ColorNavbar from "components/Navbars/ColorNavbar.js";
-import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
+import ColorNavbar from "components/Navbars/ColorNavbar.js";
+import BlogPostHeader from "components/Headers/BlogPostHeader.js";
+import FooterGray from "components/Footers/FooterGray.js";
 
 function BlogPost() {
   document.documentElement.classList.remove("nav-open");
@@ -20,8 +20,8 @@ function BlogPost() {
   });
   return (
     <>
-      {/*<ColorNavbar />*/}
-      <Header />
+      <ColorNavbar />
+      <BlogPostHeader />
       <div className="wrapper">
         <div className="main">
           <div className="section section-white">
@@ -426,7 +426,7 @@ function BlogPost() {
           </div>
         </div>
       </div>
-      <Footer />
+      <FooterGray />
     </>
   );
 }
