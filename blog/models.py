@@ -113,6 +113,7 @@ class BlogPage(Page):
     api_fields = [
         APIField('date'),
         APIField('intro'),
+        APIField('header_image'),
         APIField('body'),
     ]
 
