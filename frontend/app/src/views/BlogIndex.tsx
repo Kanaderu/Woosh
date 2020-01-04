@@ -127,11 +127,11 @@ const BlogIndex: React.FC<{}> = () => {
                             <p>{post.intro}</p>
                           </div>
                         </CardBody>
-                        <a href={"#"+post.meta.detail_url}>
+                        <Link to={"/post/" + post.id + "/"}>
                           <Button className="btn-round" color="danger" size="sm">
                             Read more
                           </Button>
-                        </a>
+                        </Link>
                       </Card>
                     </Col>
                   </Row>
