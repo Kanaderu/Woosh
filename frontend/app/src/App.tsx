@@ -27,7 +27,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route path='/blog' component={BlogIndex} />
-          <Route path='/post' component={BlogPost} />
+          <Route path='/post/:id' component={BlogPost} />
           <Route path='/home' component={Index} />
           <Route path='/icons' component={NucleoIcons} />
           <Route path='/presentation' component={Presentation} />

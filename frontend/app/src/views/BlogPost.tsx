@@ -16,9 +16,18 @@ import BlogPostHeader from '../components/Header/BlogPostHeader';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
-const BlogPost: React.FC<{}> = () => {
+interface BlogPostProps {
+  // use props.match.params.id from dynamic Route
+  match: {
+    params: {
+      id: number
+    }
+  }
+};
 
-  const service = useGetBlogPostService(3);
+const BlogPost: React.FC<BlogPostProps> = (props) => {
+
+  const service = useGetBlogPostService(props.match.params.id);
   console.log(service)
 
   document.documentElement!.classList.remove("nav-open");

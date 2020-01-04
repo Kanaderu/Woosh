@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BrowserRouter, Route, Redirect, Switch, Link } from 'react-router-dom';
+
 // reactstrap components
 import {
   Badge,
@@ -115,12 +117,12 @@ const BlogIndex: React.FC<{}> = () => {
                               Popular
                             </Badge>
                           </div>
-                          <a href={"#"+post.meta.detail_url}>
+                          <Link to={"/post/" + post.id + "/"}>
                             <CardTitle tag="h3">
                               {post.title}
                             </CardTitle>
                             <h6 className="title-uppercase">{post.date}</h6>
-                          </a>
+                          </Link>
                           <div className="card-description">
                             <p>{post.intro}</p>
                           </div>
