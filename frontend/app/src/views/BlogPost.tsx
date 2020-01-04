@@ -126,6 +126,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                         { section.type === 'table' &&
                           <div>
                             <table>
+                              <caption> { section.value.table_caption }</caption>
                               {
                                 section.value.first_row_is_table_header &&
                                 <thead>
@@ -136,7 +137,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                               }
                               <tbody>
                                 { section.value.data.map((row: Array<string|null>, row_key: number) =>
-                                    <tr>
+                                    <tr key={ row_key }>
                                       {
                                         section.value.first_row_is_table_header && row_key != 0 &&
                                         row.map((data: string|null, col_key: number) => {
@@ -170,6 +171,15 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                           <div>
                             <ReactMarkdown source={ section.value }
                               renderers={{ code: CodeBlock }} />
+                          </div>
+                        }
+
+                        { section.type === 'code' &&
+                          <div>
+                            <CodeBlock
+                              language={ section.value.language }
+                              value={ section.value.code }
+                            />
                           </div>
                         }
 
