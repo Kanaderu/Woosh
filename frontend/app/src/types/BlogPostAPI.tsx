@@ -4,12 +4,12 @@ export interface BlogPostAPI {
   date: string;
   title: string;
   intro: string;
-  body: BlogPostBodyAPI;
+  body: BlogPostBodyAPI[];
 };
 
 export interface BlogPostBodyAPI {
   type: string;
-  value: string;
+  value: any;
   id: string;
 };
 

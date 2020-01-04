@@ -48,6 +48,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
         <div className="main">
           <div className="section section-white">
             <Container>
+            {/*
               <Row>
                 <Col className="ml-auto mr-auto text-center title" md="6">
                   <h2>A place for storytelling</h2>
@@ -56,7 +57,9 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                   </h3>
                 </Col>
               </Row>
+            */}
               <Row>
+              {/*
                 <Col className="ml-auto mr-auto" md="10">
                   <div className="text-center">
                     <Badge className="main-tag" color="warning">
@@ -70,7 +73,9 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                     <h6 className="title-uppercase">October 10, 2016</h6>
                   </div>
                 </Col>
+              */}
                 <Col className="ml-auto mr-auto" md="8">
+                {/*
                   <a href="javascrip: void(0);">
                     <Card
                       data-radius="none"
@@ -83,7 +88,44 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                       Photo by Cam Adams
                     </p>
                   </a>
+                */}
                   <div className="article-content">
+                    {
+                      service.status == 'loaded' &&
+                      service.payload.body.map((section, key) =>
+                        <div key={key}>
+                        { section.type === 'heading' &&
+                          <div className="text-center" dangerouslySetInnerHTML={{ __html: "<h1>"+section.value+"</h1>" }} />
+                        }
+
+                        { section.type === 'embedded_video' &&
+                          <div dangerouslySetInnerHTML={{ __html: section.value }} />
+                          &&
+                          <div className="iframe-container">
+                            <iframe
+                              title="iframe-container"
+                              allowFullScreen={ true }
+                              frameBorder="0"
+                              height="400"
+                              src={ section.value.replace("watch?v=", "embed/") } // replace "watch" url with "embed"
+                            />
+                          </div>
+                        }
+
+                        { section.type === 'paragraph' &&
+                          <div dangerouslySetInnerHTML={{ __html: section.value }} />
+                        }
+
+                        { section.type === 'html' &&
+                          <div dangerouslySetInnerHTML={{ __html: section.value }} />
+                        }
+
+                        { section.type }<br />
+                        { JSON.stringify(section.value) }<br />
+                        { section.type }<br /><br />
+                        </div>
+                      )
+                    }
                     <h4>Follow unconventional beliefs</h4>
                     <p>
                       You won’t find many concepts that are very useful or
