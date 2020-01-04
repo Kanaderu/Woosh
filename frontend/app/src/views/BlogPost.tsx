@@ -9,6 +9,9 @@ import sebastienGabrieles from '../assets/img/sections/sebastien-gabrieles.jpg';
 
 import useGetBlogPostService from '../api/useGetBlogPostService';
 
+import CodeBlock from '../components/Block/CodeBlock';
+import ReactMarkdown from 'react-markdown';
+
 // core components
 //import ColorNavbar from "components/Navbars/ColorNavbar.js";
 //import Header from '../components/Header/Header';
@@ -118,6 +121,56 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
 
                         { section.type === 'html' &&
                           <div dangerouslySetInnerHTML={{ __html: section.value }} />
+                        }
+
+                        { section.type === 'table' &&
+                          <div>
+                            <table>
+                              {
+                                section.value.first_row_is_table_header &&
+                                <thead>
+                                  <tr>
+                                    { section.value.data[0].map((data: string|null, row_key: number) => <th key={ row_key }>{ data }</th>) }
+                                  </tr>
+                                </thead>
+                              }
+                              <tbody>
+                                { section.value.data.map((row: Array<string|null>, row_key: number) =>
+                                    <tr>
+                                      {
+                                        section.value.first_row_is_table_header && row_key != 0 &&
+                                        row.map((data: string|null, col_key: number) => {
+                                          if( section.value.first_col_is_header && col_key == 0 ) {
+                                            return <th key={ col_key }>{ data }</th>
+                                          } else {
+                                            return <td key={ col_key }>{ data }</td>
+                                          }
+                                        })
+                                      }
+                                      {
+                                        !section.value.first_row_is_table_header &&
+                                        row.map((data: string|null, col_key: number) => {
+                                          if( section.value.first_col_is_header && col_key == 0 ) {
+                                            return <th key={ col_key }>{ data }</th>
+                                          } else {
+                                            return <td key={ col_key }>{ data }</td>
+                                          }
+                                        })
+                                      }
+                                    </tr>
+                                  )
+                                }
+
+                              </tbody>
+                            </table>
+                          </div>
+                        }
+
+                        { section.type === 'markdown' &&
+                          <div>
+                            <ReactMarkdown source={ section.value }
+                              renderers={{ code: CodeBlock }} />
+                          </div>
                         }
 
                         { section.type }<br />
