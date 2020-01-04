@@ -92,7 +92,14 @@ const BlogIndex: React.FC<{}> = () => {
                   </Col>
                 </Row>
               </div>
-              { service.status === 'loading' && <div>Loading...</div> }
+              { service.status === 'loading' &&
+                <div className="article">
+                <p style={{textAlign:'center'}}>
+                  <div className="uil-reload-css reload-background mr-1">
+                    <div />
+                  </div>
+                </p>
+                </div> }
               { service.status === 'loaded' &&
                 service.payload.items.map((post, key) =>
                 <div key={key} className="article">
