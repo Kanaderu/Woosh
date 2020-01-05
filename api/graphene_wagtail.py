@@ -10,6 +10,7 @@ from graphene.types.generic import GenericScalar
 
 from wagtail.images.models import Image
 from graphene_django import DjangoObjectType
+from wagtail.core.rich_text import expand_db_html
 
 # We're creating a fallback / default ObjectType at this point
 class DefaultStreamBlock(graphene.ObjectType):
@@ -127,3 +128,12 @@ class WagtailImageNode(DjangoObjectType):
             for width in sizes
         ]
         return WagtailImageRenditionList(rendition_list=rendition_list)
+
+### see issue https://github.com/wagtail/wagtail/issues/2695 and serializers.py
+class RichTextFieldType(Scalar):
+    """Serialises RichText content into fully baked HTML
+    see https://github.com/wagtail/wagtail/issues/2695#issuecomment-373002412 """
+
+    @staticmethod
+    def serialize(value):
+        return expand_db_html(value)

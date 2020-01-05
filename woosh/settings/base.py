@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'blog',
     'frontend',
     'api',
+    'woosh_utils',
 
     'template_apps.fontawesome',
     'template_apps.katex',

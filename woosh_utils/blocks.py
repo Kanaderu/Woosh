@@ -1,14 +1,45 @@
+from django.utils.translation import ugettext_lazy as _
+
 from wagtail.core import blocks
 from wagtail.core.blocks import BooleanBlock
+from wagtail.core.rich_text import expand_db_html
 
-from wagtailcodeblock.blocks import CodeBlock
 from wagtail.embeds.blocks import EmbedBlock
+from wagtail.embeds.embeds import get_embed
+from wagtail.embeds.exceptions import EmbedException
+
 from wagtail.documents.blocks import DocumentChooserBlock
 from wagtail.contrib.table_block.blocks import TableBlock
 from wagtail.images.blocks import ImageChooserBlock
+
+from wagtailcodeblock.blocks import CodeBlock
+
 from template_apps.markdown.utils import MarkdownBlock
 
-from django.utils.translation import ugettext_lazy as _
+
+class APIRichTextBlock(blocks.RichTextBlock):
+    # APIRichTextBlock cleans the rendered values for the API
+    # see https://github.com/wagtail/wagtail/issues/2695#issuecomment-373002412
+
+    def get_api_representation(self, value, context=None):
+        super().get_api_representation(value, context)
+        return expand_db_html(self.get_prep_value(value))
+
+
+class APIEmbedBlock(EmbedBlock):
+    # generate API HTML for embedded content using wagtail providers
+    # see http://docs.wagtail.io/en/latest/advanced_topics/embeds.html
+
+    def get_api_representation(self, value, context=None):
+        super().get_api_representation(value, context)
+        try:
+            embed = get_embed(self.get_prep_value(value))
+            return embed.html
+        except EmbedException:
+            # Cannot find embed
+            pass
+
+        return super().get_api_representation()
 
 
 # load in wagtail hooks
@@ -32,9 +63,9 @@ class GoogleMapBlock(blocks.StructBlock):
 
 COLUMN_BLOCKS = [
     ('heading', blocks.CharBlock(icon='title', classname='full title')),
-    ('paragraph', blocks.RichTextBlock()),
+    ('paragraph', APIRichTextBlock()),
     ('image', ImageChooserBlock()),
-    ('embedded_video', EmbedBlock(icon='media')),
+    ('embed', APIEmbedBlock(icon='media')),
     ('code', CodeBlock(label=_('Code'))),
     ('table', TableBlock()),
     ('html', blocks.RawHTMLBlock(icon='site', label=_('HTML'))),
@@ -86,9 +117,9 @@ class ParallaxBlock(blocks.StructBlock):
 STANDARD_BLOCKS = [
     ('markdown', MarkdownBlock()),
     ('heading', blocks.CharBlock(icon='title', classname='full title')),
-    ('paragraph', blocks.RichTextBlock()),
+    ('paragraph', APIRichTextBlock()),
     ('image', ImageChooserBlock()),
-    ('embedded_video', EmbedBlock(icon='media')),
+    ('embedded_content', APIEmbedBlock(icon='media')),
     ('code', CodeBlock(label=_('Code'))),
     ('table', TableBlock()),
     ('html', blocks.RawHTMLBlock(icon='site', label=_('HTML'))),

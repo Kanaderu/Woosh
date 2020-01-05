@@ -23,6 +23,7 @@ import Footer from '../components/Footer/Footer';
 const BlogIndex: React.FC<{}> = () => {
 
   const service = useGetBlogIndexService();
+  console.log(service);
 
   document.documentElement!.classList.remove("nav-open");
   React.useEffect(() => {

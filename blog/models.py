@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.db.models import Count, Q
 
@@ -21,9 +22,7 @@ from wagtail.snippets.blocks import SnippetChooserBlock
 
 from wagtail.api import APIField
 
-import datetime
-
-from woosh.editor import STANDARD_BLOCKS
+from woosh_utils.blocks import STANDARD_BLOCKS
 
 
 def limit_author_choices():
@@ -52,13 +51,6 @@ class BlogPage(Page):
     )
     intro = models.CharField(max_length=250, help_text=_('Summary Text (max 250 characters'))
     body = StreamField(STANDARD_BLOCKS)
-    '''
-    body = StreamField([
-        ('heading', blocks.CharBlock(classname='full title')),
-        ('paragraph', blocks.RichTextBlock()),
-        ('recipe', SnippetChooserBlock('blog.Recipe')), # Add this line
-    ])
-    '''
     header_image = models.ForeignKey(
         get_image_model_string(),
         null=True,
