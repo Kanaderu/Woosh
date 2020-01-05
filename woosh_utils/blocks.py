@@ -16,6 +16,8 @@ from wagtailcodeblock.blocks import CodeBlock
 
 from template_apps.markdown.utils import MarkdownBlock
 
+from .serializers import ImageSerializer
+
 
 class APIRichTextBlock(blocks.RichTextBlock):
     # APIRichTextBlock cleans the rendered values for the API
@@ -42,6 +44,12 @@ class APIEmbedBlock(EmbedBlock):
         return super().get_api_representation()
 
 
+class APIImageChooserBlock(ImageChooserBlock):
+
+    def get_api_representation(self, value, context=None):
+        return ImageSerializer(context=context).to_representation(value)
+
+
 # load in wagtail hooks
 class QuoteBlock(blocks.TextBlock):
     class Meta:
@@ -64,7 +72,7 @@ class GoogleMapBlock(blocks.StructBlock):
 COLUMN_BLOCKS = [
     ('heading', blocks.CharBlock(icon='title', classname='full title')),
     ('paragraph', APIRichTextBlock()),
-    ('image', ImageChooserBlock()),
+    ('image', APIImageChooserBlock()),
     ('embed', APIEmbedBlock(icon='media')),
     ('code', CodeBlock(label=_('Code'))),
     ('table', TableBlock()),
@@ -103,7 +111,7 @@ class ThreeColumnBlock(blocks.StructBlock):
 
 class ParallaxBlock(blocks.StructBlock):
     video = DocumentChooserBlock(required=True, icon='media')
-    poster_image = ImageChooserBlock(required=True, icon='image')
+    poster_image = APIImageChooserBlock(required=True, icon='image')
     focus = BooleanBlock(required=False, help_text=_('Auto focus to parallax on page load'), )
 
     class Meta:
@@ -118,7 +126,7 @@ STANDARD_BLOCKS = [
     ('markdown', MarkdownBlock()),
     ('heading', blocks.CharBlock(icon='title', classname='full title')),
     ('paragraph', APIRichTextBlock()),
-    ('image', ImageChooserBlock()),
+    ('image', APIImageChooserBlock()),
     ('embedded_content', APIEmbedBlock(icon='media')),
     ('code', CodeBlock(label=_('Code'))),
     ('table', TableBlock()),
