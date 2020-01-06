@@ -73,7 +73,7 @@ COLUMN_BLOCKS = [
     ('heading', blocks.CharBlock(icon='title', classname='full title')),
     ('paragraph', APIRichTextBlock()),
     ('image', APIImageChooserBlock()),
-    ('embed', APIEmbedBlock(icon='media')),
+    ('embed', APIEmbedBlock(icon='media', help_text=_('Embed types: ‘video’, ‘photo’, ‘link’ or ‘rich’'))),
     ('code', CodeBlock(label=_('Code'))),
     ('table', TableBlock()),
     ('html', blocks.RawHTMLBlock(icon='site', label=_('HTML'))),

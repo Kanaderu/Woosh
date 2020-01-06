@@ -101,18 +101,14 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                           <div className="text-center" dangerouslySetInnerHTML={{ __html: "<h1>"+section.value+"</h1>" }} />
                         }
 
-                        { section.type === 'embedded_video' &&
-                          <div dangerouslySetInnerHTML={{ __html: section.value }} />
-                          &&
-                          <div className="iframe-container">
-                            <iframe
-                              title="iframe-container"
-                              allowFullScreen={ true }
-                              frameBorder="0"
-                              height="400"
-                              src={ section.value.replace("watch?v=", "embed/") } // replace "watch" url with "embed"
-                            />
+                        { section.type === 'image' &&
+                          <div className="text-center">
+                            <img src={ section.value.url } alt={ section.value.title } />
                           </div>
+                        }
+
+                        { section.type === 'embedded_content' &&
+                          <div className="text-center" dangerouslySetInnerHTML={{ __html: section.value }} />
                         }
 
                         { section.type === 'paragraph' &&
