@@ -3,8 +3,15 @@ export interface BlogPostAPI {
   meta: BlogIndexMetaAPI;
   date: string;
   title: string;
+  subtitle: string;
   intro: string;
   body: BlogPostBodyAPI[];
+  header_image: ImageAPI;
+};
+
+export interface ImageAPI {
+  title: string;
+  url: string;
 };
 
 export interface BlogPostBodyAPI {

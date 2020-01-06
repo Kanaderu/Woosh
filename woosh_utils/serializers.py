@@ -1,6 +1,7 @@
 from django.db.models import fields
 
 from rest_framework import serializers
+from rest_framework.fields import Field
 
 from wagtail.core.rich_text import expand_db_html
 from wagtail.images.models import Image
@@ -20,7 +21,18 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        fields = ['title', 'url', 'width', 'height']
+        fields = ['title', 'url']#, 'width', 'height']
 
     def get_url(self, obj):
-        return obj.get_rendition('fill-300x186|jpegquality-60').url
+        return obj.get_rendition('fill-300x186|jpegquality-100').url
+
+
+class HeaderImageSerializer(serializers.ModelSerializer):
+    url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Image
+        fields = ['title', 'url']#, 'width', 'height']
+
+    def get_url(self, obj):
+        return obj.get_rendition('fill-1920x720|jpegquality-100').url

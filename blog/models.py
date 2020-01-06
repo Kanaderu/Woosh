@@ -23,6 +23,7 @@ from wagtail.snippets.blocks import SnippetChooserBlock
 from wagtail.api import APIField
 
 from woosh_utils.blocks import STANDARD_BLOCKS
+from woosh_utils.serializers import HeaderImageSerializer
 
 
 def limit_author_choices():
@@ -105,7 +106,7 @@ class BlogPage(Page):
     api_fields = [
         APIField('date'),
         APIField('intro'),
-        APIField('header_image'),
+        APIField('header_image', serializer=HeaderImageSerializer()),
         APIField('body'),
     ]
 

@@ -46,7 +46,12 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
   return (
     <>
       <Navbar />
-      {service.status === 'loaded' && <BlogPostHeader title={service.payload.title} /> }
+      {service.status === 'loaded' &&
+       <BlogPostHeader
+          title={service.payload.title}
+          subtitle={service.payload.subtitle}
+          backgroundImage={service.payload.header_image.url}
+        /> }
       <div className="wrapper">
         <div className="main">
           <div className="section section-white">

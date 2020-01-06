@@ -9,31 +9,37 @@ import gerritVermeulen from '../../assets/img/sections/gerrit-vermeulen.jpg';
 
 type BlogPostHeaderProps = {
   title: string;
+  subtitle?: string;
   backgroundImage?: string;
 }
 
-function BlogPostHeader(props: BlogPostHeaderProps) {
+const BlogPostHeader: React.FC<BlogPostHeaderProps> = (props) => {
   return (
     <>
       <div
         className="page-header page-header-small"
         style={{
           backgroundImage:
-            "url(" + gerritVermeulen + ")"
+            "url(" + props.backgroundImage + ")"
         }}
       >
-        <div className="filter filter-danger" />
+        {/*<div className="filter filter-danger" /> */}
         <div className="content-center">
           <Container>
             <h1>
               {props.title}
             </h1>
-            <h3>Let us tell you more about what we do.</h3>
+            <h3>{props.subtitle}</h3>
           </Container>
         </div>
       </div>
     </>
   );
 }
+
+BlogPostHeader.defaultProps = {
+  backgroundImage: gerritVermeulen,
+  subtitle: ""
+};
 
 export default BlogPostHeader;
