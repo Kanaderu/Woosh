@@ -10,7 +10,13 @@ import sebastienGabrieles from '../assets/img/sections/sebastien-gabrieles.jpg';
 import useGetBlogPostService from '../api/useGetBlogPostService';
 
 import CodeBlock from '../components/Block/CodeBlock';
-import ReactMarkdown from 'react-markdown';
+import HeadingBlock from '../components/Block/HeadingBlock';
+import ImageBlock from '../components/Block/ImageBlock';
+import ParagraphBlock from '../components/Block/ParagraphBlock';
+import HTMLBlock from '../components/Block/HTMLBlock';
+import EmbedBlock from '../components/Block/EmbedBlock';
+import MarkdownBlock from '../components/Block/MarkdownBlock';
+import TableBlock from '../components/Block/TableBlock';
 
 // core components
 //import ColorNavbar from "components/Navbars/ColorNavbar.js";
@@ -103,76 +109,31 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                       service.payload.body.map((section, key) =>
                         <div key={key}>
                         { section.type === 'heading' &&
-                          <div className="text-center" dangerouslySetInnerHTML={{ __html: "<h1>"+section.value+"</h1>" }} />
+                          <HeadingBlock center={ true } value={"<h1>"+section.value+"</h1>"} />
                         }
 
                         { section.type === 'image' &&
-                          <div className="text-center">
-                            <img src={ section.value.url } alt={ section.value.title } />
-                          </div>
+                          <ImageBlock center={ true } src={ section.value.url } alt={ section.value.title } />
                         }
 
                         { section.type === 'embedded_content' &&
-                          <div className="text-center" dangerouslySetInnerHTML={{ __html: section.value }} />
+                          <EmbedBlock center={ true } value={ section.value } />
                         }
 
                         { section.type === 'paragraph' &&
-                          <div dangerouslySetInnerHTML={{ __html: section.value }} />
+                          <ParagraphBlock value={ section.value } />
                         }
 
                         { section.type === 'html' &&
-                          <div dangerouslySetInnerHTML={{ __html: section.value }} />
+                          <HTMLBlock value={ section.value } />
                         }
 
                         { section.type === 'table' &&
-                          <div>
-                            <table>
-                              <caption> { section.value.table_caption }</caption>
-                              {
-                                section.value.first_row_is_table_header &&
-                                <thead>
-                                  <tr>
-                                    { section.value.data[0].map((data: string|null, row_key: number) => <th key={ row_key }>{ data }</th>) }
-                                  </tr>
-                                </thead>
-                              }
-                              <tbody>
-                                { section.value.data.map((row: Array<string|null>, row_key: number) =>
-                                    <tr key={ row_key }>
-                                      {
-                                        section.value.first_row_is_table_header && row_key != 0 &&
-                                        row.map((data: string|null, col_key: number) => {
-                                          if( section.value.first_col_is_header && col_key == 0 ) {
-                                            return <th key={ col_key }>{ data }</th>
-                                          } else {
-                                            return <td key={ col_key }>{ data }</td>
-                                          }
-                                        })
-                                      }
-                                      {
-                                        !section.value.first_row_is_table_header &&
-                                        row.map((data: string|null, col_key: number) => {
-                                          if( section.value.first_col_is_header && col_key == 0 ) {
-                                            return <th key={ col_key }>{ data }</th>
-                                          } else {
-                                            return <td key={ col_key }>{ data }</td>
-                                          }
-                                        })
-                                      }
-                                    </tr>
-                                  )
-                                }
-
-                              </tbody>
-                            </table>
-                          </div>
+                          <TableBlock value={ section.value }/>
                         }
 
                         { section.type === 'markdown' &&
-                          <div>
-                            <ReactMarkdown source={ section.value }
-                              renderers={{ code: CodeBlock }} />
-                          </div>
+                          <MarkdownBlock value={ section.value } />
                         }
 
                         { section.type === 'code' &&
@@ -184,117 +145,14 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                           </div>
                         }
 
+                        {/*
                         { section.type }<br />
                         { JSON.stringify(section.value) }<br />
                         { section.type }<br /><br />
+                        */}
                         </div>
                       )
                     }
-                    <h4>Follow unconventional beliefs</h4>
-                    <p>
-                      You won’t find many concepts that are very useful or
-                      important if you insist on having a worldview that’s void
-                      of controversy, invulnerable to criticism, and incapable
-                      of making others feel confused.
-                    </p>
-                    <p>
-                      Interesting ideas are a reward for not being afraid to
-                      have unconventional beliefs. You can’t grow if you’re
-                      never willing to turn your back on the status quo. You
-                      can’t expand if you’re never willing to take an unorthodox
-                      stand. You can’t have a beautiful mind if you’re never
-                      willing to leave the crowd behind.
-                    </p>
-                    <blockquote className="blockquote">
-                      <p>
-                        "Don’t settle: Don’t finish crappy books. If you don’t
-                        like the menu, leave the restaurant. If you’re not on
-                        the right path, get off it."
-                      </p>
-                      <footer>
-                        - Chris Brogan in{" "}
-                        <cite title="Source Title">Trust Agents</cite>
-                      </footer>
-                    </blockquote>
-                    <p>
-                      It’s easier to fear rejection than it is to open our minds
-                      to something new, but doing what’s easy doesn’t always
-                      equal doing what’s authentic, enriching, and meaningful.
-                    </p>
-                    <Row>
-                      <Col md="6">
-                        <a href="javascrip: void(0);">
-                          <Card
-                            data-radius="none"
-                            style={{
-                              backgroundImage:
-                                "url(" + sebastienGabrieles + ")"
-                            }}
-                          />
-                          {/* end card */}
-                        </a>
-                      </Col>
-                      <Col md="6">
-                        <a href="javascrip: void(0);">
-                          <Card
-                            data-radius="none"
-                            style={{
-                              backgroundImage:
-                                "url(" + johnTower + ")"
-                            }}
-                          />
-                        </a>
-                      </Col>
-                    </Row>
-                    <p />
-                    <h4>Ideas Worth Mentioning</h4>
-                    <p>
-                      The stories, ideas and lessons are enough to fill a year’s
-                      worth of articles, but for now I wanted to share the ideas
-                      straight from the people creating the disruption. Below
-                      are my most impactful takeaways from the last few days:
-                    </p>
-                    <p>
-                      <strong>No one belongs here more than me.</strong> When in
-                      doubt of your surroundings, this is the mantra.
-                    </p>
-                    <p>
-                      <strong>The ultimate currency is being uncool.</strong> Be
-                      vulnerably you and watch how you connect.
-                    </p>
-                    <p>
-                      <strong>The opposite of scarcity is enough.</strong> Be
-                      confident that if you’re doing work that matters to you,
-                      you are enough. There is no comparison.
-                    </p>
-                    <p>
-                      <strong>Unused creativity is not benign</strong> – it
-                      turns into grief. Do something with it.
-                    </p>
-                    <p>
-                      <strong>Get in the arena</strong>, show up, do your thing
-                      and don’t be afraid to get your ass kicked a little bit.
-                    </p>
-                    <p>
-                      Who you are will always trump who you think people want
-                      you to be.
-                    </p>
-                    <p>
-                      <strong>
-                        You can’t control if someone loves you back.
-                      </strong>{" "}
-                      Love them anyway.
-                    </p>
-                    <h4>
-                      <strong>Conclusions</strong>
-                    </h4>
-                    <p>
-                      If all of your convictions can be expressed in a sound
-                      bite on mainstream television without provoking the
-                      slightest bit of anger or annoyance in anyone whatsoever,
-                      I think it’s safe to say that your outlook on life offers
-                      you very few opportunities for the remarkable.
-                    </p>
                   </div>
                   <br />
                   <div className="article-footer">
