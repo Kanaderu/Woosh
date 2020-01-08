@@ -8,6 +8,8 @@ import NucleoIcons from './views/NucleoIcons';
 import Presentation from './views/Presentation';
 import Sections from './views/Sections';
 
+import Callie from './views/Callie';
+
 //import Header from './components/Header/Header';
 //import Footer from './components/Footer/Footer';
 
@@ -32,8 +34,9 @@ class App extends React.Component {
           <Route path='/icons' component={NucleoIcons} />
           <Route path='/presentation' component={Presentation} />
           <Route path='/sections' component={Sections} />
+          <Route path='/callie' component={Callie} />
           {/*<Route path="/" render={props => <Index {...props} />} />*/}
-          <Redirect to='/blog' />
+          <Redirect to='/callie' />
         </Switch>
       </BrowserRouter>
     );
