@@ -5,6 +5,10 @@ import classnames from 'classnames';
 // JavaScript plugin that hides or shows a component based on your scroll
 //import Headroom from "headroom.js";
 import Headroom from 'react-headroom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Settings from '../../constants';
+
 // reactstrap components
 import {
   Button,
@@ -29,12 +33,12 @@ function ColorNavbar() {
 
   const updateNavbarColor = () => {
     if (
-      document.documentElement.scrollTop > 499 ||
+      document.documentElement!.scrollTop > 499 ||
       document.body.scrollTop > 499
     ) {
       setNavbarColor("");
     } else if (
-      document.documentElement.scrollTop < 500 ||
+      document.documentElement!.scrollTop < 500 ||
       document.body.scrollTop < 500
     ) {
       setNavbarColor("navbar-transparent");
@@ -47,7 +51,7 @@ function ColorNavbar() {
         <div
           id="bodyClick"
           onClick={() => {
-            document.documentElement.classList.toggle("nav-open");
+            document.documentElement!.classList.toggle("nav-open");
             setBodyClick(false);
             setCollapseOpen(false);
           }}
@@ -66,17 +70,17 @@ function ColorNavbar() {
           <Container>
             <div className="navbar-translate">
               <NavbarBrand id="navbar-brand" to="/index" tag={Link}>
-                Paper Kit PRO React
+                { Settings.siteName }
               </NavbarBrand>
               <UncontrolledTooltip placement="bottom" target="navbar-brand">
-                Paper Kit PRO React
+                { Settings.siteName }
               </UncontrolledTooltip>
               <button
                 className="navbar-toggler"
                 id="navigation"
                 type="button"
                 onClick={() => {
-                  document.documentElement.classList.toggle("nav-open");
+                  document.documentElement!.classList.toggle("nav-open");
                   setBodyClick(true);
                   setCollapseOpen(true);
                 }}
@@ -90,14 +94,11 @@ function ColorNavbar() {
               <Nav className="ml-auto" navbar>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle className="mr-2" color="default" caret nav>
-                    Components
+                    Blog
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-danger" right>
-                    <DropdownItem to="/index" tag={Link}>
-                      All Components
-                    </DropdownItem>
-                    <DropdownItem to="/presentation" tag={Link}>
-                      Presentation
+                    <DropdownItem to="/blog" tag={Link}>
+                      Blog
                     </DropdownItem>
                     <DropdownItem
                       href="https://demos.creative-tim.com/paper-kit-pro-react/#/documentation/introduction?ref=pkpr-color-navbar"
@@ -216,11 +217,11 @@ function ColorNavbar() {
                 <NavItem>
                   <Button
                     className="btn-round"
-                    color="danger"
+                    color="success"
                     href="https://www.creative-tim.com/product/paper-kit-pro-react?ref=pkpr-color-navbar"
                     target="_blank"
                   >
-                    <i className="nc-icon nc-cart-simple" /> Buy Now
+                    <FontAwesomeIcon icon="sign-in-alt" size='lg' /> Login
                   </Button>
                 </NavItem>
               </Nav>

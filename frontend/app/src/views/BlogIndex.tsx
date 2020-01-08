@@ -18,6 +18,7 @@ import useGetBlogIndexService from '../api/useGetBlogIndexService';
 
 // core components
 import Navbar from '../components/Navbar/Navbar';
+import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 const BlogIndex: React.FC<{}> = () => {
@@ -38,6 +39,7 @@ const BlogIndex: React.FC<{}> = () => {
   return (
     <>
       <Navbar />
+      <Header />
       <div className="wrapper">
         <div className="main">
           <div className="section section-white">
@@ -51,48 +53,6 @@ const BlogIndex: React.FC<{}> = () => {
                 </Col>
               </Row>
 
-              <div className="article">
-                <Row>
-                  <Col className="ml-auto mr-auto" md="8">
-                    <Card className="card-blog card-plain text-center">
-                      <div className="card-image">
-                        <a href="#pablo" onClick={e => e.preventDefault()}>
-                          <img
-                            alt="..."
-                            className="img img-raised"
-                            src={require("../assets/img/sections/bruno-abatti.jpg")}
-                          />
-                        </a>
-                      </div>
-                      <CardBody>
-                        <div className="card-category">
-                          <Badge className="main-tag" color="primary">
-                            Featured
-                          </Badge>
-                        </div>
-                        <a href="javascrip: void(0);">
-                          <CardTitle tag="h3">
-                            My Review of Pitchfork’s ‘Indie 500’ Album Review
-                          </CardTitle>
-                        </a>
-                        <div className="card-description">
-                          <p>
-                            In the first sentence of Pitchfork’s review of my
-                            collaborative project with 9th Wonder, INDIE 500, a
-                            reviewer who is associated with music review site
-                            rhapsody.com writes about how I criticize and then
-                            distance myself from “celebrity straw men” with the
-                            line “celebrities be making money...
-                          </p>
-                        </div>
-                      </CardBody>
-                      <Button className="btn-round" color="danger" size="sm">
-                        Read more
-                      </Button>
-                    </Card>
-                  </Col>
-                </Row>
-              </div>
               { service.status === 'loading' &&
                 <div className="article" style={{textAlign:'center'}}>
                   <div className="uil-reload-css reload-background mr-1">
@@ -110,13 +70,13 @@ const BlogIndex: React.FC<{}> = () => {
                     <Col className="ml-auto mr-auto" md="8">
                       <Card className="card-blog card-plain text-center">
                         <div className="card-image">
-                          <a href="#pablo" onClick={e => e.preventDefault()}>
+                          <Link to={"/post/" + post.id + "/"}>
                             <img
-                              alt="..."
+                              alt={post.header_image.title}
                               className="img img-raised"
-                              src={require("../assets/img/sections/federico-beccari.jpg")}
+                              src={post.header_image.url}
                             />
-                          </a>
+                          </Link>
                         </div>
                         <CardBody>
                           <div className="card-category">

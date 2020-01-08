@@ -1,3 +1,5 @@
+import ImageAPI from './ImageAPI';
+
 export interface BlogPostAPI {
   id: number;
   meta: BlogIndexMetaAPI;
@@ -7,11 +9,6 @@ export interface BlogPostAPI {
   intro: string;
   body: BlogPostBodyAPI[];
   header_image: ImageAPI;
-};
-
-export interface ImageAPI {
-  title: string;
-  url: string;
 };
 
 export interface BlogPostBodyAPI {
