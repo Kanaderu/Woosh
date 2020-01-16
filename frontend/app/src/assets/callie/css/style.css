@@ -117,7 +117,7 @@ blockquote.blockquote {
 
 blockquote.blockquote:before {
   content: "\f10d";
-  font-family: fontAwesome;
+  font-family: 'Font Awesome 5 Free';
   width: 70px;
   height: 70px;
   line-height: 70px;
@@ -449,7 +449,7 @@ textarea.input {
 }
 
 .nav-menu li.has-dropdown>a:after {
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   content: "\f0d7";
   margin-left: 5px;
 }
@@ -610,7 +610,7 @@ textarea.input {
 }
 
 .nav-aside-menu li.has-dropdown>a:after {
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   content: "\f0d7";
   float: right;
 }
@@ -1255,7 +1255,7 @@ textarea.input {
 
 .newsletter-widget:after {
   content: "\f003";
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 5 Free';
   position: absolute;
   bottom: -25px;
   right: 27px;

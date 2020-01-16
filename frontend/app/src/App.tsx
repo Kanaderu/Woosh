@@ -8,7 +8,7 @@ import NucleoIcons from './views/NucleoIcons';
 import Presentation from './views/Presentation';
 import Sections from './views/Sections';
 
-import Callie from './views/Callie';
+import Callie from './callie/view';
 
 //import Header from './components/Header/Header';
 //import Footer from './components/Footer/Footer';

@@ -1,11 +1,13 @@
 import React from 'react';
 
-import '../../assets/callie/css/MontserratCallie.css';
+//import '../../assets/callie/css/MontserratCallie.css';
 import '../../assets/callie/css/style.css';
-import '../../assets/callie/css/font-awesome.min.css';
+//import '../../assets/callie/css/font-awesome.min.css';
 import '../../assets/callie/css/bootstrap.min.css';
 
 import logo from '../../assets/callie/img/logo.png';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //import '../../assets/callie/js/jquery.min.js'
 //import '../../assets/callie/js/bootstrap.min.js'
@@ -30,10 +32,10 @@ const CallieNavbar: React.FC<{}> = () => {
   				<div className="container">
             {/* social */}
   					<ul className="nav-social">
-  						<li><a href="#"><i className="fa fa-facebook"></i></a></li>
-  						<li><a href="#"><i className="fa fa-twitter"></i></a></li>
-  						<li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-  						<li><a href="#"><i className="fa fa-instagram"></i></a></li>
+  						<li><a href="#"><FontAwesomeIcon icon={['fab', 'facebook']} size='lg'/></a></li>
+  						<li><a href="#"><FontAwesomeIcon icon={['fab', 'twitter']} size='lg'/></a></li>
+  						<li><a href="#"><FontAwesomeIcon icon={['fab', 'google-plus']} size='lg'/></a></li>
+  						<li><a href="#"><FontAwesomeIcon icon={['fab', 'instagram']} size='lg'/></a></li>
   					</ul>
             {/* /social */}
 
@@ -45,8 +47,8 @@ const CallieNavbar: React.FC<{}> = () => {
 
             {/* search & aside toggle */}
   					<div className="nav-btns">
-  						<button className="aside-btn"><i className="fa fa-bars"></i></button>
-  						<button className="search-btn"><i className="fa fa-search"></i></button>
+  						<button className="aside-btn"><FontAwesomeIcon icon="bars"/></button>
+  						<button className="search-btn"><FontAwesomeIcon icon="search"/></button>
   						<div id="nav-search">
   							<form>
   								<input className="input" name="search" placeholder="Enter your search..." />
@@ -285,27 +287,6 @@ const CallieNavbar: React.FC<{}> = () => {
   				</div>
   			</div>
         {/* /Main Nav */}
-
-        {/* Aside Nav */}
-  			<div id="nav-aside">
-  				<ul className="nav-aside-menu">
-  					<li><a href="index.html">Home</a></li>
-  					<li className="has-dropdown"><a>Categories</a>
-  						<ul className="dropdown">
-  							<li><a href="#">Lifestyle</a></li>
-  							<li><a href="#">Fashion</a></li>
-  							<li><a href="#">Technology</a></li>
-  							<li><a href="#">Travel</a></li>
-  							<li><a href="#">Health</a></li>
-  						</ul>
-  					</li>
-  					<li><a href="about.html">About Us</a></li>
-  					<li><a href="contact.html">Contacts</a></li>
-  					<li><a href="#">Advertise</a></li>
-  				</ul>
-  				<button className="nav-close nav-aside-close"><span></span></button>
-  			</div>
-        {/* /Aside Nav */}
   		</div>
       {/* /NAV */}
     </>
