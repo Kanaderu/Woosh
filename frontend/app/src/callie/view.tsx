@@ -1,8 +1,10 @@
 import React from 'react';
 
 //import CallieNavbar from '../components/Navbar/CallieNavbar';
-import CallieNavbar from './components/Navbar/Navbar';
+import CallieNavbar from './components/navbar/Navbar';
 //import CallieNavbar from '../components/Navbar/CallieNavbar2';
+import BlogSection from './components/sections/BlogPage';
+import CallieFooter from './components/footer/Footer';
 
 const Callie: React.FC<{}> = () => {
 
@@ -10,6 +12,8 @@ const Callie: React.FC<{}> = () => {
   return (
     <>
       <CallieNavbar />
+      <BlogSection />
+      <CallieFooter />
     </>
   );
 };
