@@ -17,7 +17,6 @@ import {
 } from 'reactstrap';
 
 const MenuDropdown: React.FC<{}> = () => {
-
   return (
     <>
       <NavItem className="has-dropdown">

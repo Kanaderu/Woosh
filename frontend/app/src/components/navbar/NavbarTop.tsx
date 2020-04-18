@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from 'reactstrap';
 
 import logo from '../../assets/callie/img/logo.png';
-//import logo from '../../../assets/callie/img/logo.png';
 
 const NavbarTop: React.FC<{}> = () => {
   return (

@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import Callie from './layout/view';
 
-import './assets/callie/css/all.min.css';
-import './assets/callie/css/bootstrap.min.css';
-import './assets/callie/css/MontserratCallie.css';
-import './assets/callie/css/style.css';
+import './assets/css/all.min.css';
+import './assets/css/MontserratCallie.css';
+import './assets/css/bootstrap.min.css';
+import './assets/css/style.css'
 
 class App extends React.Component {
   render(){
