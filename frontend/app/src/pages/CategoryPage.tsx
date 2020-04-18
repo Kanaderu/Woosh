@@ -27,7 +27,9 @@ const CategoryPage: React.FC<{}> = () => {
         {/* Row */}
         <Row>
           <Col md="8">
-            <PostHot />
+            <Row style={{marginBottom: "30px"}}>
+              <PostHot />
+            </Row>
             <PostGallery />
 
             <PostRow />

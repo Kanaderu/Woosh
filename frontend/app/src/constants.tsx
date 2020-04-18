@@ -5,8 +5,8 @@ type consts = {
 };
 
 const Settings: consts = {
-  blogIndexEndpointAPI: "http://localhost:8000/api/blog/",
-  blogPostEndpointAPI: (id:number) => ("http://localhost:8000/api/blog/" + id + "/"),
+  blogIndexEndpointAPI: "http://localhost:9090/api/blog/",
+  blogPostEndpointAPI: (id:number) => ("http://localhost:9090/api/blog/" + id + "/"),
 
   siteName: "Pandave",
 };

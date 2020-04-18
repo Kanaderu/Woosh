@@ -5,7 +5,8 @@ import RegularView from './layout/RegularView';
 import ContactView from './layout/ContactView';
 import AboutView from './layout/AboutView';
 import AuthorView from './layout/AuthorView';
-import BlogView from './layout/BlogView';
+import BlogPostView from './layout/BlogPostView';
+import BlogIndexView from './layout/BlogIndexView';
 import CategoryView from './layout/CategoryView';
 
 import './assets/css/all.min.css';
@@ -30,9 +31,10 @@ class App extends React.Component {
           <Route path='/contact' component={ContactView} />
           <Route path='/about' component={AboutView} />
           <Route path='/author' component={AuthorView} />
-          <Route path='/blog' component={BlogView} />
+          <Route path='/blog' component={BlogPostView} />
+          <Route path='/blog-index' component={BlogIndexView} />
           <Route path='/category' component={CategoryView} />
-          <Redirect to='/category' />
+          <Redirect to='/blog-index' />
         </Switch>
       </BrowserRouter>
     );

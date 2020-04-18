@@ -6,7 +6,7 @@ const PostHot: React.FC<{}> = () => {
   return (
     <>
       {/* Post */}
-			<div className="post post-thumb">
+			<div className="post post-thumb" style={{marginBottom: "0px"}}>
 				<a className="post-img" href="blog-post.html"><img src={hotPost} alt="" /></a>
 				<div className="post-body">
 					<div className="post-category">

@@ -4,7 +4,7 @@ import CallieNavbar from '../components/navbars/Navbar';
 import CallieFooter from '../components/footers/Footer';
 
 import BlogHeader from '../components/headers/BlogHeader';
-import BlogPage from '../pages/BlogPage';
+import BlogPostPage from '../pages/BlogPostPage';
 
 const BlogView: React.FC<{}> = () => {
 
@@ -13,7 +13,7 @@ const BlogView: React.FC<{}> = () => {
       <CallieNavbar>
         <BlogHeader />
       </CallieNavbar>
-      <BlogPage />
+      <BlogPostPage />
       <CallieFooter />
     </>
   );
