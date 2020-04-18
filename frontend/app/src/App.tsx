@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
+import RegularView from './layout/RegularView';
 import ContactView from './layout/ContactView';
 import AboutView from './layout/AboutView';
 import AuthorView from './layout/AuthorView';
@@ -25,6 +26,7 @@ class App extends React.Component {
           <Route path='/presentation' component={Presentation} />
           <Route path='/sections' component={Sections} />
           {/*<Route path="/" render={props => <Index {...props} />} />*/}
+          <Route path='/regular' component={RegularView} />
           <Route path='/contact' component={ContactView} />
           <Route path='/about' component={AboutView} />
           <Route path='/author' component={AuthorView} />
