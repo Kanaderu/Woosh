@@ -3,6 +3,8 @@ import React from 'react';
 import PostShare from '../components/sections/PostShare';
 import PostContent from '../components/sections/PostContent';
 import PostAuthor from '../components/sections/PostAuthor';
+import PostTags from '../components/sections/PostTags';
+import PostNav from '../components/sections/PostNav';
 import RelatedPost from '../components/sections/RelatedPost';
 import PostComments from '../components/sections/PostComments';
 import PostReply from '../components/sections/PostReply';
@@ -32,6 +34,8 @@ const BlogPage: React.FC<{}> = () => {
           <Col md="8">
             <PostShare />
             <PostContent />
+            <PostTags />
+            <PostNav />
             <PostAuthor />
             <RelatedPost />
             <PostComments />

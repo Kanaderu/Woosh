@@ -1,5 +1,7 @@
 import React from 'react';
 
+import avatar from '../../assets/img/avatar-1.jpg';
+
 const PostAuthor: React.FC<{}> = () => {
   return (
     <>
@@ -11,7 +13,7 @@ const PostAuthor: React.FC<{}> = () => {
   			<div className="author media">
   				<div className="media-left">
   					<a href="author.html">
-  						<img className="author-img media-object" src="./img/avatar-1.jpg" alt="" />
+  						<img className="author-img media-object" src={avatar} alt="" />
   					</a>
   				</div>
   				<div className="media-body">
