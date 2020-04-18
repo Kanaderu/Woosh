@@ -12,20 +12,18 @@ import {
 const BlogPage: React.FC<{}> = () => {
   return (
     <>
-    {/* Section */}
   	<div className="section">
-      {/* Container */}
       <Container>
-        {/* Row */}
+        {/* left hot-post */}
         <Row style={{marginBottom: "30px"}}>
           <Col md="8">
-            {/* left hot-post */}
             <Row md="12" style={{paddingRight: 2}}>
               <PostHot />
             </Row>
           </Col>
+
+          {/* right hot-post */}
           <Col md="4">
-            {/* right hot-post */}
             <Row md="6" style={{paddingLeft: 2, paddingBottom: 1}}>
               <PostHot />
             </Row>
@@ -42,15 +40,9 @@ const BlogPage: React.FC<{}> = () => {
         </Row>
 
         <Row>
-          <Col md="4">
-            <PostCard />
-          </Col>
-          <Col md="4">
-            <PostCard />
-          </Col>
-          <Col md="4">
-            <PostCard />
-          </Col>
+          <PostCard blogIndex={0} />
+          <PostCard blogIndex={1}/>
+          <PostCard blogIndex={2}/>
         </Row>
       </Container>
     </div>

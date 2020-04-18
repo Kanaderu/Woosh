@@ -2,10 +2,19 @@ import React from 'react';
 
 import post3 from '../../assets/img/post-3.jpg';
 
-const PostCard: React.FC<{}> = () => {
+import {
+  Col
+} from 'reactstrap';
+
+export interface PostCardProps  {
+  blogIndex: number
+}
+
+const PostCard: React.FC<PostCardProps> = ({blogIndex}: PostCardProps) => {
   return (
     <>
-      {/* post */}
+      {blogIndex}
+			<Col md="4">
 				<div className="post">
 					<a className="post-img" href="blog-post.html"><img src={post3} alt=""/></a>
 					<div className="post-body">
@@ -19,7 +28,7 @@ const PostCard: React.FC<{}> = () => {
 						</ul>
 					</div>
 				</div>
-      {/* /post */}
+			</Col>
     </>
   );
 }

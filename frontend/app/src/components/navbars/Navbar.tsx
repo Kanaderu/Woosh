@@ -11,7 +11,7 @@ import NavbarTop from './NavbarTop';
 import NavbarBottom from './NavbarBottom';
 
 export interface NavbarProps  {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const Navbar: React.FC<NavbarProps> = ({children}) => {
