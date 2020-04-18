@@ -4,19 +4,19 @@ import CallieNavbar from '../components/navbars/Navbar';
 import CallieFooter from '../components/footers/Footer';
 
 import AboutHeader from '../components/headers/AboutHeader';
-import AboutPage from '../pages/AboutPage';
+import ContactPage from '../pages/ContactPage';
 
-const BlogView: React.FC<{}> = () => {
+const ContactView: React.FC<{}> = () => {
 
   return (
     <>
       <CallieNavbar>
         <AboutHeader />
       </CallieNavbar>
-      <AboutPage />
+      <ContactPage />
       <CallieFooter />
     </>
   );
 };
 
-export default BlogView;
+export default ContactView;
