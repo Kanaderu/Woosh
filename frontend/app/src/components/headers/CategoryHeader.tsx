@@ -12,7 +12,6 @@ import {
 const BlogHeader: React.FC<{}> = () => {
   return (
     <>
-      {/* Page header */}
   		<div className="page-header">
   			<div className="page-header-bg" style={{backgroundImage: "url(" + headerImg + ")"}} data-stellar-background-ratio="0.5"></div>
   			<Container>
