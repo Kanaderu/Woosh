@@ -1,5 +1,10 @@
 import React from 'react';
 
+import widget2 from '../../assets/img/widget-2.jpg';
+import widget3 from '../../assets/img/widget-3.jpg';
+import widget4 from '../../assets/img/widget-4.jpg';
+import widget5 from '../../assets/img/widget-5.jpg';
+
 const PostWidget: React.FC<{}> = () => {
   return (
     <>
@@ -10,7 +15,7 @@ const PostWidget: React.FC<{}> = () => {
         </div>
         {/* post */}
         <div className="post post-widget">
-          <a className="post-img" href="blog-post.html"><img src="./img/widget-3.jpg" alt="" /></a>
+          <a className="post-img" href="blog-post.html"><img src={widget3} alt="" /></a>
           <div className="post-body">
             <div className="post-category">
               <a href="category.html">Lifestyle</a>
@@ -22,7 +27,7 @@ const PostWidget: React.FC<{}> = () => {
 
         {/* post */}
         <div className="post post-widget">
-          <a className="post-img" href="blog-post.html"><img src="./img/widget-2.jpg" alt="" /></a>
+          <a className="post-img" href="blog-post.html"><img src={widget2} alt="" /></a>
           <div className="post-body">
             <div className="post-category">
               <a href="category.html">Technology</a>
@@ -35,7 +40,7 @@ const PostWidget: React.FC<{}> = () => {
 
         {/* post */}
         <div className="post post-widget">
-          <a className="post-img" href="blog-post.html"><img src="./img/widget-4.jpg" alt="" /></a>
+          <a className="post-img" href="blog-post.html"><img src={widget4} alt="" /></a>
           <div className="post-body">
             <div className="post-category">
               <a href="category.html">Health</a>
@@ -47,7 +52,7 @@ const PostWidget: React.FC<{}> = () => {
 
         {/* post */}
         <div className="post post-widget">
-          <a className="post-img" href="blog-post.html"><img src="./img/widget-5.jpg" alt="" /></a>
+          <a className="post-img" href="blog-post.html"><img src={widget5} alt="" /></a>
           <div className="post-body">
             <div className="post-category">
               <a href="category.html">Health</a>

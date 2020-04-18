@@ -1,5 +1,9 @@
 import React from 'react';
 
+import post4 from '../../assets/img/post-4.jpg';
+import post6 from '../../assets/img/post-6.jpg';
+import post7 from '../../assets/img/post-7.jpg';
+
 const RelatedPost: React.FC<{}> = () => {
   return (
     <>
@@ -12,7 +16,7 @@ const RelatedPost: React.FC<{}> = () => {
           {/* post */}
           <div className="col-md-4">
             <div className="post post-sm">
-              <a className="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt="" /></a>
+              <a className="post-img" href="blog-post.html"><img src={post4} alt="" /></a>
               <div className="post-body">
                 <div className="post-category">
                   <a href="category.html">Health</a>
@@ -30,7 +34,7 @@ const RelatedPost: React.FC<{}> = () => {
           {/* post */}
           <div className="col-md-4">
             <div className="post post-sm">
-              <a className="post-img" href="blog-post.html"><img src="./img/post-6.jpg" alt="" /></a>
+              <a className="post-img" href="blog-post.html"><img src={post6} alt="" /></a>
               <div className="post-body">
                 <div className="post-category">
                   <a href="category.html">Fashion</a>
@@ -49,7 +53,7 @@ const RelatedPost: React.FC<{}> = () => {
           {/* post */}
           <div className="col-md-4">
             <div className="post post-sm">
-              <a className="post-img" href="blog-post.html"><img src="./img/post-7.jpg" alt="" /></a>
+              <a className="post-img" href="blog-post.html"><img src={post7} alt="" /></a>
               <div className="post-body">
                 <div className="post-category">
                   <a href="category.html">Health</a>

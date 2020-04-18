@@ -1,5 +1,9 @@
 import React from 'react';
 
+import avatar1 from '../../assets/img/avatar-1.jpg';
+import avatar2 from '../../assets/img/avatar-2.jpg';
+import avatar3 from '../../assets/img/avatar-3.jpg';
+
 const PostComments: React.FC<{}> = () => {
   return (
     <>
@@ -12,7 +16,7 @@ const PostComments: React.FC<{}> = () => {
           {/* comment */}
           <div className="media">
             <div className="media-left">
-              <img className="media-object" src="./img/avatar-2.jpg" alt="" />
+              <img className="media-object" src={avatar2} alt="" />
             </div>
             <div className="media-body">
               <div className="media-heading">
@@ -24,7 +28,7 @@ const PostComments: React.FC<{}> = () => {
               {/* comment */}
               <div className="media media-author">
                 <div className="media-left">
-                  <img className="media-object" src="./img/avatar-1.jpg" alt="" />
+                  <img className="media-object" src={avatar1} alt="" />
                 </div>
                 <div className="media-body">
                   <div className="media-heading">
@@ -43,7 +47,7 @@ const PostComments: React.FC<{}> = () => {
           {/* comment */}
           <div className="media">
             <div className="media-left">
-              <img className="media-object" src="./img/avatar-3.jpg" alt="" />
+              <img className="media-object" src={avatar3} alt="" />
             </div>
             <div className="media-body">
               <div className="media-heading">

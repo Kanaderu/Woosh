@@ -1,11 +1,13 @@
 import React from 'react';
 
+import headerImg from '../../assets/img/header-1.jpg';
+
 const BlogHeader: React.FC<{}> = () => {
   return (
     <>
       {/* Page header */}
       <div id="post-header" className="page-header">
-  			<div className="page-header-bg" style={{backgroundImage: `url('./img/header-1.jpg')`}} data-stellar-background-ratio="0.5"></div>
+  			<div className="page-header-bg" style={{backgroundImage: "url(" + headerImg + ")"}} data-stellar-background-ratio="0.5"></div>
   			<div className="container">
   				<div className="row">
   					<div className="col-md-10">
