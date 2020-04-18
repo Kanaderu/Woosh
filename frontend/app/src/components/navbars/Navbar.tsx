@@ -9,20 +9,23 @@ import React from 'react';
 
 import NavbarTop from './NavbarTop';
 import NavbarBottom from './NavbarBottom';
-import BlogHeader from '../headers/BlogHeader';
 
-const CallieNavbar: React.FC<{}> = () => {
+export interface NavbarProps  {
+  children: React.ReactNode
+}
+
+const Navbar: React.FC<NavbarProps> = ({children}) => {
   return (
     <>
       <header id="header">
         <div id="nav">
           <NavbarTop />
           <NavbarBottom />
-          <BlogHeader />
+          { children }
         </div>
       </header>
     </>
   );
 }
 
-export default CallieNavbar;
+export default Navbar;

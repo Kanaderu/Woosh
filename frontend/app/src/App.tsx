@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import Callie from './layout/view';
+import BlogView from './layout/BlogView';
+import CategoryView from './layout/CategoryView';
 
 import './assets/css/all.min.css';
 import './assets/css/MontserratCallie.css';
@@ -21,8 +22,9 @@ class App extends React.Component {
           <Route path='/presentation' component={Presentation} />
           <Route path='/sections' component={Sections} />
           {/*<Route path="/" render={props => <Index {...props} />} />*/}
-          <Route path='/callie' component={Callie} />
-          <Redirect to='/callie' />
+          <Route path='/blog' component={BlogView} />
+          <Route path='/category' component={CategoryView} />
+          <Redirect to='/category' />
         </Switch>
       </BrowserRouter>
     );

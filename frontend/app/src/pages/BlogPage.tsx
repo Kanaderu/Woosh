@@ -14,26 +14,31 @@ import PostWidget from '../components/widgets/PostWidget';
 import GalleryWidget from '../components/widgets/GalleryWidget';
 import AdWidget from '../components/widgets/AdWidget';
 
-const BlogSection: React.FC<{}> = () => {
+import {
+  Container,
+  Row,
+  Col
+} from 'reactstrap';
+
+const BlogPage: React.FC<{}> = () => {
   return (
     <>
     {/* Section */}
   	<div className="section">
       {/* Container */}
-      <div className="container">
+      <Container>
         {/* Row */}
-        <div className="row">
-          <div className="col-md-8">
+        <Row>
+          <Col md="8">
             <PostShare />
             <PostContent />
             <PostAuthor />
             <RelatedPost />
             <PostComments />
             <PostReply />
-          </div>
+          </Col>
 
-
-          <div className="col-md-4">
+          <Col md="4">
             <AdWidget />
             <SocialWidget />
             <CategoryWidget />
@@ -41,12 +46,12 @@ const BlogSection: React.FC<{}> = () => {
             <PostWidget />
             <GalleryWidget />
             <AdWidget />
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
     </>
   );
 }
 
-export default BlogSection;
+export default BlogPage;

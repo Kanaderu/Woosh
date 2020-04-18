@@ -1,5 +1,7 @@
 import React from 'react';
 
+import altLogo from '../../assets/img/logo-alt.png';
+
 const CallieFooter: React.FC<{}> = () => {
   return (
     <>
@@ -12,7 +14,7 @@ const CallieFooter: React.FC<{}> = () => {
     				<div className="col-md-3">
     					<div className="footer-widget">
     						<div className="footer-logo">
-    							<a href="index.html" className="logo"><img src="./img/logo-alt.png" alt="" /></a>
+    							<a href="index.html" className="logo"><img src={altLogo} alt="" /></a>
     						</div>
     						<p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
     						<ul className="contact-social">
