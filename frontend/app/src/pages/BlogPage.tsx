@@ -14,25 +14,6 @@ import PostWidget from '../components/widgets/PostWidget';
 import GalleryWidget from '../components/widgets/GalleryWidget';
 import AdWidget from '../components/widgets/AdWidget';
 
-import {
-  Container,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
-} from 'reactstrap';
-
-import '../../../assets/callie/css/style.css';
-
-//<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:400,700" rel="stylesheet">
 const BlogSection: React.FC<{}> = () => {
   return (
     <>

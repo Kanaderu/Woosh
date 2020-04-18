@@ -129,6 +129,7 @@ blockquote.blockquote:before {
   border: 2px solid #e8eaed;
   float: left;
   margin-right: 10px;
+  font-weight: 700;
 }
 
 blockquote.blockquote .blockquote-footer {

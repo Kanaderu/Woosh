@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CallieNavbar from '../components/navbar/Navbar';
-import BlogSection from '../components/sections/BlogPage';
-import CallieFooter from '../components/footer/Footer';
+import CallieNavbar from '../components/navbars/Navbar';
+import CallieFooter from '../components/footers/Footer';
+import BlogSection from '../pages/BlogPage';
 
 const Callie: React.FC<{}> = () => {
 

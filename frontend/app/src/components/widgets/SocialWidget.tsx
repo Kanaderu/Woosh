@@ -12,19 +12,19 @@ const SocialWidget: React.FC<{}> = () => {
           <ul>
             <li>
               <a href="#" className="social-facebook">
-                <i className="fa fa-facebook"></i>
+                <i className="fab fa-facebook"></i>
                 <span>21.2K<br />Followers</span>
               </a>
             </li>
             <li>
               <a href="#" className="social-twitter">
-                <i className="fa fa-twitter"></i>
+                <i className="fab fa-twitter"></i>
                 <span>10.2K<br />Followers</span>
               </a>
             </li>
             <li>
               <a href="#" className="social-google-plus">
-                <i className="fa fa-google-plus"></i>
+                <i className="fab fa-google-plus"></i>
                 <span>5K<br />Followers</span>
               </a>
             </li>

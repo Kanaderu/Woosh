@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, NavItem, NavLink } from 'reactstrap';
 
-import MenuDropdown from './MenuDropdown';
-import MenuDropdownMega from './MenuDropdownMega';
-import MenuDropdownList from './MenuDropdownList';
+import MenuDropdown from '../menus/MenuDropdown';
+import MenuDropdownMega from '../menus/MenuDropdownMega';
+import MenuDropdownList from '../menus/MenuDropdownList';
 
 const NavbarBottom: React.FC<{}> = () => {
   return (
