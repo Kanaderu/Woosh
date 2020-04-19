@@ -10,6 +10,7 @@ export interface BlogIndexMetaAPI {
 };
 
 export interface BlogIndexDataAPI {
+  author: string;
   date: string;
   id: number;
   intro: string;

@@ -10,5 +10,5 @@ class RecipeAPIEndpoint(BaseAPIEndpoint):
 
 class BlogAPIEndpoint(BaseAPIEndpoint):
     model = BlogPage
-    body_fields = BaseAPIEndpoint.body_fields + ['date', 'title', 'intro', 'header_image']
-    listing_default_fields = BaseAPIEndpoint.listing_default_fields + ['title', 'date', 'intro', 'header_image']
+    body_fields = BaseAPIEndpoint.body_fields + ['date', 'title', 'intro', 'header_image', 'author']
+    listing_default_fields = BaseAPIEndpoint.listing_default_fields + ['title', 'date', 'intro', 'header_image', 'author']

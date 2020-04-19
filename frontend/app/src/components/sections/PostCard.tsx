@@ -25,7 +25,7 @@ const PostCard: React.FC<PostCardProps> = ({post}: PostCardProps) => {
 						</div>
 						<h3 className="post-title"><a href="blog-post.html">{post.title}</a></h3>
 						<ul className="post-meta">
-							<li><a href="author.html">John Doe</a></li>
+							<li><a href="author.html">{post.author}</a></li>
 							<li>{postDateString}</li>
 						</ul>
 					</div>
