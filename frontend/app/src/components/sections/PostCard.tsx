@@ -14,6 +14,7 @@ const PostCard: React.FC<PostCardProps> = ({post}: PostCardProps) => {
   const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const postDate = new Date(post.date);
   const postDateString = postDate.getDate()+1 + " " + month[postDate.getMonth()] + " " + postDate.getFullYear();
+
   return (
     <>
 			<Col md="4">
@@ -25,7 +26,9 @@ const PostCard: React.FC<PostCardProps> = ({post}: PostCardProps) => {
 						</div>
 						<h3 className="post-title"><a href="blog-post.html">{post.title}</a></h3>
 						<ul className="post-meta">
-							<li><a href="author.html">{post.author}</a></li>
+              {/* check if author exists */
+               post.author && <li><a href="author.html">{post.author.username}</a></li>
+              }
 							<li>{postDateString}</li>
 						</ul>
 					</div>

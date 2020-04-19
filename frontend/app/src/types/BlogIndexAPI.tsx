@@ -1,4 +1,5 @@
 import ImageAPI from './ImageAPI';
+import Author from './Author';
 
 export interface BlogIndexAPI {
   items: BlogIndexDataAPI[];
@@ -10,7 +11,7 @@ export interface BlogIndexMetaAPI {
 };
 
 export interface BlogIndexDataAPI {
-  author: string;
+  author: Author;
   date: string;
   id: number;
   intro: string;

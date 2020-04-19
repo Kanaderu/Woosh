@@ -23,7 +23,7 @@ from wagtail.snippets.blocks import SnippetChooserBlock
 from wagtail.api import APIField
 
 from woosh_utils.blocks import STANDARD_BLOCKS
-from woosh_utils.serializers import HeaderImageSerializer
+from woosh_utils.serializers import HeaderImageSerializer, AuthorSerializer
 
 
 def limit_author_choices():
@@ -108,6 +108,7 @@ class BlogPage(Page):
         APIField('intro'),
         APIField('header_image', serializer=HeaderImageSerializer()),
         APIField('body'),
+        APIField('author', serializer=AuthorSerializer()),
     ]
 
     # define verbose names
