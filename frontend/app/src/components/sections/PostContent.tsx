@@ -16,13 +16,11 @@ export interface PostContentProps {
 }
 
 const PostContent: React.FC<PostContentProps> = ({data}) => {
-  
+
   return (
     <>
       {
-        data.map((entry, key)=>{
-          return renderType(entry, key);
-        })
+        data.map((entry, key) => renderType(entry, key));
       }
     </>
   );
