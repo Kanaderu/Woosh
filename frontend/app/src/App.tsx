@@ -12,7 +12,8 @@ import CategoryView from './layout/CategoryView';
 import './assets/css/all.min.css';
 import './assets/css/MontserratCallie.css';
 import './assets/css/bootstrap.min.css';
-import './assets/css/style.css'
+import './assets/css/style.css';
+//import 'katex/dist/katex.min.css';
 
 class App extends React.Component {
   render(){

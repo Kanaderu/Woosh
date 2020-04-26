@@ -51,7 +51,10 @@ class APIImageChooserBlock(ImageChooserBlock):
 
 
 # load in wagtail hooks
-class QuoteBlock(blocks.TextBlock):
+class QuoteBlock(blocks.StructBlock):
+    quote = blocks.TextBlock(required=True)
+    origin = blocks.CharBlock(max_length=255)
+
     class Meta:
         template = 'blocks/quote.html'
         icon = 'openquote'
