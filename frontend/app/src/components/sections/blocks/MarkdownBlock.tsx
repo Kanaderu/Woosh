@@ -17,6 +17,11 @@ export const Markdown = (props: ReactMarkdown.ReactMarkdownProps) => {
     renderers: {
       ...props.renderers,
       code: (props: {value: string, language: string}) => <CodeBlock value={props.value} language={props.language} />,
+      blockquote: (props: any) =>
+        <blockquote className="blockquote">
+          {props.children}
+          <footer className="blockquote-footer"></footer>
+        </blockquote>,
       math: (props: {value: string}) => <BlockMath math={props.value} />,
       inlineMath: (props: {value: string}) => <InlineMath math={props.value} />
     }
