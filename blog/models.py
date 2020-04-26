@@ -55,7 +55,6 @@ class BlogPage(Page):
     header_image = models.ForeignKey(
         get_image_model_string(),
         null=True,
-        blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
         verbose_name=_('Header Image'),
@@ -63,7 +62,7 @@ class BlogPage(Page):
     )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        blank=True, null=True,
+        null=True,
         limit_choices_to=limit_author_choices,
         verbose_name=_('Author'),
         on_delete=models.SET_NULL,
@@ -111,6 +110,10 @@ class BlogPage(Page):
         APIField('author', serializer=AuthorSerializer()),
     ]
 
+    # Parent page / subpage type rules
+    parent_page_types = ['blog.BlogIndexPage']
+    subpage_types = []
+
     # define verbose names
     class Meta:
         verbose_name = _('Blog Page')
@@ -132,6 +135,10 @@ class BlogIndexPage(Page):
     api_fields = [
         APIField('intro'),
     ]
+
+    # Parent page / subpage type rules
+    parent_page_types = []
+    subpage_types = ['blog.BlogPage']
 
 
 @register_snippet
