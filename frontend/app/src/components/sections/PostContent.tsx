@@ -1,16 +1,14 @@
 import React from 'react';
 
-import CodeEntry from './content/CodeEntry';
-import MarkdownEntry from './content/MarkdownEntry';
+import CodeBlock from './blocks/CodeBlock';
+import MarkdownBlock from './blocks/MarkdownBlock';
 
 import { BlogPostBodyAPI } from '../../types/BlogPostAPI';
 
 const renderType = (entry:BlogPostBodyAPI, key:number) => {
   switch(entry.type){
     case 'code':
-      return <CodeEntry key={key}
-        language={entry.value.language}
-        value={entry.value.code} />
+      return <CodeBlock key={key} language={entry.value.language} value={entry.value.code} />
     case 'embedded_content':
       return <div key={key} dangerouslySetInnerHTML={{ __html: entry.value }} />
     case 'heading':
@@ -20,7 +18,7 @@ const renderType = (entry:BlogPostBodyAPI, key:number) => {
     case 'image':
       return <img key={key} src={"http://localhost:9090"+entry.value.url} alt={entry.value.title} />
     case 'markdown':
-      return <MarkdownEntry key={key} data={entry.value} />
+      return <MarkdownBlock key={key} data={entry.value} />
     case 'paragraph':
       return <div key={key}dangerouslySetInnerHTML={{ __html: entry.value }} />
     case 'quote':
