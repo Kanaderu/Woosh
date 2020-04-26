@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'graphene_django',
     'rest_framework',
 
-    'home',
     'search',
     'blog',
     'frontend',
