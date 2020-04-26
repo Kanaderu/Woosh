@@ -64,10 +64,10 @@ import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 
 export interface CodeEntryProps {
   language: string,
-  code: string
+  value: string
 }
 
-const CodeEntry: React.FC<CodeEntryProps> = ({language, code}) => {
+const CodeEntry: React.FC<CodeEntryProps> = ({language, value}) => {
   const codeElement = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -75,13 +75,13 @@ const CodeEntry: React.FC<CodeEntryProps> = ({language, code}) => {
     // if (codeElement && codeElement.current) {
     //   Prism.highlightElement(codeElement.current)
     // }
-  }, [code]);
+  }, [value]);
 
   return (
     <div>
       <pre className="line-numbers">
         <code ref={codeElement} className={"match-braces " + `language-${language}`}>
-          {code}
+          {value}
         </code>
       </pre>
     </div>

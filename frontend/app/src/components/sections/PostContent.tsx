@@ -10,7 +10,7 @@ const renderType = (entry:BlogPostBodyAPI, key:number) => {
     case 'code':
       return <CodeEntry key={key}
         language={entry.value.language}
-        code={entry.value.code} />
+        value={entry.value.code} />
     case 'embedded_content':
       return <div key={key} dangerouslySetInnerHTML={{ __html: entry.value }} />
     case 'heading':
