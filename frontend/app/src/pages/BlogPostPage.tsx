@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import CallieNavbar from '../components/navbars/Navbar';
+import BlogHeader from '../components/headers/BlogHeader';
 
 import PostShare from '../components/sections/PostShare';
 import PostContent from '../components/sections/PostContent';
@@ -22,9 +25,31 @@ import {
   Col
 } from 'reactstrap';
 
-const BlogPage: React.FC<{}> = () => {
+import { BlogPostAPI } from '../types/BlogPostAPI';
+import useGetBlogPostService from '../api/useGetBlogPostService';
+
+export interface BlogPageProps  {
+  id: number
+}
+
+const BlogPage: React.FC<BlogPageProps> = ({id}) => {
+  var post: BlogPostAPI | null = null;
+  const results = useGetBlogPostService(id);
+
+  if(results.status == "loaded"){
+    post = results.payload;
+    console.log(post);
+  } else {
+    // handle state while loading
+    console.log(results.status)
+  }
+
+  if(post != null){
   return (
     <>
+    <CallieNavbar>
+      <BlogHeader post={post} />
+    </CallieNavbar>
     {/* Section */}
   	<div className="section">
       {/* Container */}
@@ -33,7 +58,7 @@ const BlogPage: React.FC<{}> = () => {
         <Row>
           <Col md="8">
             <PostShare />
-            <PostContent />
+            <PostContent data={post.body}/>
             <PostTags />
             <PostNav />
             <PostAuthor />
@@ -56,6 +81,11 @@ const BlogPage: React.FC<{}> = () => {
     </div>
     </>
   );
+  }
+  else {
+    return (<></>)
+  }
+
 }
 
 export default BlogPage;

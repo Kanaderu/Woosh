@@ -1,6 +1,8 @@
 import ImageAPI from './ImageAPI';
+import Author from './Author';
 
 export interface BlogPostAPI {
+  author: Author;
   id: number;
   meta: BlogIndexMetaAPI;
   date: string;

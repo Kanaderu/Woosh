@@ -1,19 +1,22 @@
 import React from 'react';
 
-import CallieNavbar from '../components/navbars/Navbar';
 import CallieFooter from '../components/footers/Footer';
 
-import BlogHeader from '../components/headers/BlogHeader';
 import BlogPostPage from '../pages/BlogPostPage';
 
-const BlogView: React.FC<{}> = () => {
+export interface BlogViewProps  {
+  match: {
+    params: {
+      id: number
+    }
+  }
+}
+
+const BlogView: React.FC<BlogViewProps> = ({match}) => {
 
   return (
     <>
-      <CallieNavbar>
-        <BlogHeader />
-      </CallieNavbar>
-      <BlogPostPage />
+      <BlogPostPage id={match.params.id} />
       <CallieFooter />
     </>
   );

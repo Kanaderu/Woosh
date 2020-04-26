@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch, RouteComponentProps } from 'react-router-dom';
 
 import RegularView from './layout/RegularView';
 import ContactView from './layout/ContactView';
@@ -31,7 +31,11 @@ class App extends React.Component {
           <Route path='/contact' component={ContactView} />
           <Route path='/about' component={AboutView} />
           <Route path='/author' component={AuthorView} />
-          <Route path='/blog' component={BlogPostView} />
+          <Route path='/blog/:id' component={BlogPostView} />
+          {/*
+          render={( {blog}: BlogPageProps) => (
+            <BlogPostView id={blog.params.id} /> )} />
+          */}
           <Route path='/blog-index' component={BlogIndexView} />
           <Route path='/category' component={CategoryView} />
           <Redirect to='/blog-index' />
