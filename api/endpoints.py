@@ -1,5 +1,12 @@
 from wagtail.api.v2.endpoints import BaseAPIEndpoint
 from blog.models import BlogPage, Recipe
+from single_pages.models import HomePage
+
+
+class HomeAPIEndpoint(BaseAPIEndpoint):
+    model = HomePage
+    body_fields = BaseAPIEndpoint.body_fields + ['date', 'title', 'author', 'carousel_images']
+    listing_default_fields = BaseAPIEndpoint.listing_default_fields + ['date', 'title', 'author', 'carousel_images']
 
 
 class RecipeAPIEndpoint(BaseAPIEndpoint):
@@ -11,4 +18,4 @@ class RecipeAPIEndpoint(BaseAPIEndpoint):
 class BlogAPIEndpoint(BaseAPIEndpoint):
     model = BlogPage
     body_fields = BaseAPIEndpoint.body_fields + ['date', 'title', 'intro', 'header_image', 'author']
-    listing_default_fields = BaseAPIEndpoint.listing_default_fields + ['title', 'date', 'intro', 'header_image', 'author']
+    listing_default_fields = BaseAPIEndpoint.listing_default_fields + ['date', 'title', 'intro', 'header_image', 'author']

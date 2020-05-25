@@ -320,7 +320,10 @@ textarea.input {
 }
 
 #nav-bottom {
-  border-top: 1px solid #e8eaed;
+  /* border-top: 65px solid #e8eaed; */
+  /* border-top: 65px solid #FFFFFF; */
+  border-top: 65px solid #FFFFFF;
+  /* border-top: 1px solid #e8eaed; */
 }
 
 /*----------------------------*\
@@ -1531,4 +1534,18 @@ textarea.input {
     float: left;
     margin-left: 0px;
   }
+}
+
+
+.carousel-indicators li {
+  background-color: #ee4266;
+}
+
+.carousel-caption-right {
+  padding: 1% !important;
+  position: relative;
+  height: 50%;
+  right: 4%;
+  width: 50%;
+  font-size: 25px;
 }

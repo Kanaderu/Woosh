@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-coy.css'
 
+import HomeView from './layout/HomeView';
 import RegularView from './layout/RegularView';
 import ContactView from './layout/ContactView';
 import AboutView from './layout/AboutView';
@@ -15,7 +16,8 @@ import CategoryView from './layout/CategoryView';
 
 import './assets/css/all.min.css';
 import './assets/css/MontserratCallie.css';
-import './assets/css/bootstrap.min.css';
+// import './assets/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/style.css';
 
 class App extends React.Component {
@@ -31,6 +33,7 @@ class App extends React.Component {
           <Route path='/presentation' component={Presentation} />
           <Route path='/sections' component={Sections} />
           {/*<Route path="/" render={props => <Index {...props} />} />*/}
+          <Route path='/' component={HomeView} />
           <Route path='/regular' component={RegularView} />
           <Route path='/contact' component={ContactView} />
           <Route path='/about' component={AboutView} />

@@ -66,7 +66,7 @@ class BlogPage(Page):
         limit_choices_to=limit_author_choices,
         verbose_name=_('Author'),
         on_delete=models.SET_NULL,
-        related_name='author_pages',
+        related_name='author_blog_pages',
     )
 
     # define content_panels (content tab)
@@ -137,8 +137,13 @@ class BlogIndexPage(Page):
     ]
 
     # Parent page / subpage type rules
-    parent_page_types = []
+    parent_page_types = ['wagtailcore.Page'] # parents of root only
     subpage_types = ['blog.BlogPage']
+
+    @classmethod
+    def can_create_at(cls, parent):
+        # You can only create one of these!
+        return super(BlogIndexPage, cls).can_create_at(parent) and not cls.objects.exists()
 
 
 @register_snippet

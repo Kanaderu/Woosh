@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'search',
     'blog',
     'frontend',
+    'single_pages',
     'api',
     'woosh_utils',
 

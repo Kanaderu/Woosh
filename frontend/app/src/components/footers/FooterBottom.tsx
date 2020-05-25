@@ -9,7 +9,7 @@ const FooterBottom: React.FC<{}> = () => {
     <>
       <Row className="footer-bottom">
 				<div className="col-md-6 col-md-push-6">
-					<ul className="footer-nav">
+					<ul className="footer-nav float-left">
 						<li><a href="index.html">Home</a></li>
 						<li><a href="about.html">About Us</a></li>
 						<li><a href="contact.html">Contacts</a></li>
@@ -18,7 +18,7 @@ const FooterBottom: React.FC<{}> = () => {
 					</ul>
 				</div>
 				<div className="col-md-6 col-md-pull-6">
-					<div className="footer-copyright">
+					<div className="footer-copyright float-right">
             &copy; No Rights Reserved {(new Date().getFullYear())}
 					</div>
 				</div>
