@@ -41,6 +41,17 @@ class HeaderImageSerializer(serializers.ModelSerializer):
         return obj.get_rendition('fill-1920x720|jpegquality-100').url
 
 
+class CarouselImageSerializer(serializers.ModelSerializer):
+    url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Image
+        fields = ['title', 'url']#, 'width', 'height']
+
+    def get_url(self, obj):
+        return obj.get_rendition('fill-1920x1080|jpegquality-100').url
+
+
 class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:

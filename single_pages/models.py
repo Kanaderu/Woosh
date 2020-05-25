@@ -22,8 +22,8 @@ from wagtail.snippets.blocks import SnippetChooserBlock
 
 from wagtail.api import APIField
 
-from woosh_utils.blocks import STANDARD_BLOCKS, APIImageChooserBlock
-from woosh_utils.serializers import HeaderImageSerializer, AuthorSerializer
+from woosh_utils.blocks import STANDARD_BLOCKS, APICarouselImageChooserBlock
+from woosh_utils.serializers import AuthorSerializer
 
 
 # def limit_author_choices():
@@ -59,7 +59,7 @@ class HomePage(Page):
         related_name='author_home_pages',
     )
     carousel_images = StreamField([
-        ('image', APIImageChooserBlock()),
+        ('image', APICarouselImageChooserBlock()),
     ])
 
     # define content_panels (content tab)
@@ -87,6 +87,7 @@ class HomePage(Page):
     api_fields = [
         APIField('date'),
         APIField('body'),
+        APIField('carousel_images'),
         APIField('author', serializer=AuthorSerializer()),
     ]
 
@@ -102,3 +103,11 @@ class HomePage(Page):
     def can_create_at(cls, parent):
         # You can only create one of these!
         return super(HomePage, cls).can_create_at(parent) and not cls.objects.exists()
+
+@register_snippet
+class SocialSnippet(models.Model):
+    # type = models.Ch
+    url = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.content

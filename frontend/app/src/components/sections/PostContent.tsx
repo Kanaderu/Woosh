@@ -3,9 +3,9 @@ import React from 'react';
 import CodeBlock from './blocks/CodeBlock';
 import MarkdownBlock from './blocks/MarkdownBlock';
 
-import { BlogPostBodyAPI } from '../../types/BlogPostAPI';
+import { BodyAPI } from '../../types/BaseAPI';
 
-const renderType = (entry:BlogPostBodyAPI, key:number) => {
+const renderType = (entry:BodyAPI, key:number) => {
   switch(entry.type){
     case 'code':
       return <CodeBlock key={key} language={entry.value.language} value={entry.value.code} />
@@ -32,7 +32,7 @@ const renderType = (entry:BlogPostBodyAPI, key:number) => {
 }
 
 export interface PostContentProps {
-  data: BlogPostBodyAPI[]
+  data: BodyAPI[]
 }
 
 const PostContent: React.FC<PostContentProps> = ({data}) => {

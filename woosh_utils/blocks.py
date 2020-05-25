@@ -16,7 +16,7 @@ from wagtailcodeblock.blocks import CodeBlock
 
 from template_apps.markdown.utils import MarkdownBlock
 
-from .serializers import ImageSerializer
+from .serializers import ImageSerializer, CarouselImageSerializer
 
 
 class APIRichTextBlock(blocks.RichTextBlock):
@@ -48,6 +48,12 @@ class APIImageChooserBlock(ImageChooserBlock):
 
     def get_api_representation(self, value, context=None):
         return ImageSerializer(context=context).to_representation(value)
+
+
+class APICarouselImageChooserBlock(ImageChooserBlock):
+
+    def get_api_representation(self, value, context=None):
+        return CarouselImageSerializer(context=context).to_representation(value)
 
 
 # load in wagtail hooks

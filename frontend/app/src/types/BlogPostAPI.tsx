@@ -1,27 +1,17 @@
 import ImageAPI from './ImageAPI';
 import Author from './Author';
+import {BodyAPI, MetaAPI} from './BaseAPI';
 
 export interface BlogPostAPI {
   author: Author;
   id: number;
-  meta: BlogIndexMetaAPI;
+  meta: MetaAPI;
   date: string;
   title: string;
   subtitle: string;
   intro: string;
-  body: BlogPostBodyAPI[];
+  body: BodyAPI[];
   header_image: ImageAPI;
-};
-
-export interface BlogPostBodyAPI {
-  type: string;
-  value: any;
-  id: string;
-};
-
-export interface BlogIndexMetaAPI {
-  detail_url: string;
-  type: string;
 };
 
 export default BlogPostAPI;

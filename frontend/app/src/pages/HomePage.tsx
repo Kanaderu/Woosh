@@ -5,8 +5,13 @@ import Typography from '../components/sections/Typography';
 import SocialWidget from '../components/widgets/SocialWidget';
 import NewsletterWidget from '../components/widgets/NewsletterWidget';
 
+import PostContent from '../components/sections/PostContent';
+
 import ClassCarousel from '../components/carousel/ClassCarousel';
 // import ClassCarousel from '../components/carousel/Examples';
+
+import { HomePageAPI } from '../types/HomePageAPI';
+import useGetHomePageService from '../api/useGetHomePageService';
 
 import {
   Container,
@@ -15,6 +20,15 @@ import {
 } from 'reactstrap';
 
 const HomePage: React.FC<{}> = () => {
+  var posts: HomePageAPI[] = [];
+  const results = useGetHomePageService();
+
+  if(results.status == "loaded"){
+    posts = results.payload.items;
+    console.log(posts);
+  } else {
+    // handle state while loading
+  }
   return (
     <>
     {/* Row */}
@@ -26,7 +40,10 @@ const HomePage: React.FC<{}> = () => {
         {/* Row */}
         <Row>
           <Col md="8">
-            <Typography />
+            {posts.length > 0 &&
+            <PostContent data={posts[0].body}/>
+            }
+            {/* <Typography /> */}
           </Col>
 
           <Col md="4">

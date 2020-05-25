@@ -5,7 +5,7 @@ Author: yaminncco
 Colors:
 	Body 		  : #505050
 	Headers 	: #11151c
-	Primary 	: #ee4266
+	Primary 	: #ee4266 --> #2c8c93ff --> #1b998b
 	Dark 		  : #1b1c1e
 	Grey 		  : #e8eaed #97989b #323335
 
@@ -75,18 +75,18 @@ a {
 }
 
 a:hover, a:focus {
-  color: #ee4266;
+  color: #1b998b;
   text-decoration: none;
   outline: none;
 }
 
 ::-moz-selection {
-  background-color: #ee4266;
+  background-color: #1b998b;
   color: #FFF;
 }
 
 ::selection {
-  background-color: #ee4266;
+  background-color: #1b998b;
   color: #FFF;
 }
 
@@ -123,7 +123,7 @@ blockquote.blockquote:before {
   line-height: 70px;
   text-align: center;
   border-radius: 50%;
-  color: #ee4266;
+  color: #1b998b;
   font-size: 30px;
   background: #fff;
   border: 2px solid #e8eaed;
@@ -236,10 +236,10 @@ textarea.input {
 }
 
 .primary-button {
-  background-color: #ee4266;
+  background-color: #1b998b;
   color: #fff;
-  -webkit-box-shadow: 0px 0px 0px 2px #ee4266 inset;
-  box-shadow: 0px 0px 0px 2px #ee4266 inset;
+  -webkit-box-shadow: 0px 0px 0px 2px #1b998b inset;
+  box-shadow: 0px 0px 0px 2px #1b998b inset;
 }
 
 .secondary-button {
@@ -251,7 +251,7 @@ textarea.input {
 
 .primary-button:hover, .primary-button:focus {
   background-color: transparent;
-  color: #ee4266;
+  color: #1b998b;
 }
 
 .secondary-button:hover, .secondary-button:focus {
@@ -485,7 +485,7 @@ textarea.input {
   background-color: #fff;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  border-top: 2px solid #ee4266;
+  border-top: 2px solid #1b998b;
 }
 
 .dropdown .dropdown-list li {
@@ -563,7 +563,7 @@ textarea.input {
 }
 
 .nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li.active {
-  background: #ee4266
+  background: #1b998b
 }
 
 .nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li.active a {
@@ -606,7 +606,7 @@ textarea.input {
 }
 
 .nav-aside-menu li a:hover, .nav-aside-menu li a:focus {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 .nav-aside-menu li.has-dropdown>a {
@@ -772,7 +772,7 @@ textarea.input {
 }
 
 .post-category a {
-  color: #ee4266;
+  color: #1b998b;
   font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
@@ -804,7 +804,7 @@ textarea.input {
 }
 
 .post-meta li a:hover, .post-meta li a:focus {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 .post-meta li:after {
@@ -873,7 +873,7 @@ textarea.input {
 }
 
 .post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 .post.post-thumb .post-meta li {
@@ -885,7 +885,7 @@ textarea.input {
 }
 
 .post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 /*----------------------------*\
@@ -962,7 +962,7 @@ textarea.input {
 }
 
 .page-header .post-meta li a:hover, .page-header .post-meta li a:focus {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 .post-share a {
@@ -1114,7 +1114,7 @@ textarea.input {
 }
 
 .page-header .author .author-social li a:hover, .page-header .author .author-social li a:focus {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 /*----------------------------*\
@@ -1181,11 +1181,11 @@ textarea.input {
 }
 
 .post-comments .media.media-author .media-heading h4 {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 .post-comments .media.media-author .media-left:after {
-  background-color: #ee4266;
+  background-color: #1b998b;
 }
 
 /*=========================================================
@@ -1330,7 +1330,7 @@ textarea.input {
 
 .tags-widget ul li a:hover, .tags-widget ul li a:focus {
   color: #fff !important;
-  background-color: #ee4266;
+  background-color: #1b998b;
 }
 
 /*----------------------------*\
@@ -1387,7 +1387,7 @@ textarea.input {
 }
 
 #footer a:hover, #footer a:focus {
-  color: #ee4266;
+  color: #1b998b;
 }
 
 .footer-widget {
@@ -1445,7 +1445,7 @@ textarea.input {
   text-align: center;
   height: 40px;
   background: #fff;
-  color: #ee4266;
+  color: #1b998b;
   border: 1px solid #e8eaed;
   line-height: 40px;
   border-radius: 50%;
@@ -1538,7 +1538,7 @@ textarea.input {
 
 
 .carousel-indicators li {
-  background-color: #ee4266;
+  background-color: #1b998b;
 }
 
 .carousel-caption-right {
