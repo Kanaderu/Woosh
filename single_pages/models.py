@@ -108,15 +108,26 @@ class HomePage(Page):
 class SocialSnippet(models.Model):
 
     class Social(models.TextChoices):
-        FACEBOOK = 'FB', _('Facebook')
-        GOOGLE_PLUS = 'GP', _('Google+')
-        TWITTER = 'TW', _('Twitter')
-        IG = 'IG', _('Instagram')
-        SNAPCHAT = 'SC', _('Snapchat')
-        EMAIL = 'EM', _('Email')
+        FACEBOOK = 'Facebook', _('Facebook')
+        GOOGLE_PLUS = 'Google+', _('Google+')
+        TWITTER = 'Twitter', _('Twitter')
+        IG = 'Instagram', _('Instagram')
+        SNAPCHAT = 'Snapchat', _('Snapchat')
+        EMAIL = 'Email', _('Email')
 
-    type = models.CharField(max_length=2, choices=Social.choices, default=Social.FACEBOOK)
+    platform = models.CharField(max_length=16, choices=Social.choices, default=Social.FACEBOOK)
     url = models.CharField(max_length=255)
 
+    panels = [
+        FieldRowPanel([
+            FieldPanel('url'),
+            FieldPanel('platform'),
+        ], heading=_('Social Media'))
+    ]
+
     def __str__(self):
-        return self.content
+        return '{}: {}'.format(self.Social(self.platform).name.lower().capitalize(), self.url)
+
+    class Meta:
+        verbose_name = _('Social Snippet')
+        verbose_name_plural = _('Social Snippets')

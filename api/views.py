@@ -23,5 +23,5 @@ class BlogAPIViewSet(BaseAPIViewSet):
 
 class SocialLinksAPIViewSet(BaseAPIViewSet):
     model = SocialSnippet
-    body_fields = BaseAPIViewSet.body_fields + ['url']
-    listing_default_fields = BaseAPIViewSet.listing_default_fields = ['url']
+    body_fields = BaseAPIViewSet.body_fields + ['platform', 'url']
+    listing_default_fields = BaseAPIViewSet.listing_default_fields + ['platform', 'url']
