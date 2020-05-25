@@ -26,10 +26,10 @@ INSTALLED_APPS = [
     'graphene_django',
     'rest_framework',
 
-    'home',
     'search',
     'blog',
     'frontend',
+    'single_pages',
     'api',
     'woosh_utils',
 

@@ -1,31 +1,31 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import Index from './views/Index';
-import BlogIndex from './views/BlogIndex';
-import BlogPost from './views/BlogPost';
-import NucleoIcons from './views/NucleoIcons';
-import Presentation from './views/Presentation';
-import Sections from './views/Sections';
+// required to render code
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-coy.css'
 
-//import Header from './components/Header/Header';
-//import Footer from './components/Footer/Footer';
+import HomeView from './layout/HomeView';
+import RegularView from './layout/RegularView';
+import ContactView from './layout/ContactView';
+import AboutView from './layout/AboutView';
+import AuthorView from './layout/AuthorView';
+import BlogPostView from './layout/BlogPostView';
+import BlogIndexView from './layout/BlogIndexView';
+import CategoryView from './layout/CategoryView';
 
-//import './assets/css/Montserrat.css';
-import './assets/scss/fontawesome/scss/fontawesome.scss';
-import './assets/scss/fontawesome/scss/regular.scss';
-import './assets/scss/fontawesome/scss/solid.scss';
-import './assets/scss/fontawesome/scss/brands.scss';
-import './assets/css/bootstrap.min.css';
-import './assets/scss/paper-kit.scss';
-import './assets/demo/demo.css';
-import './assets/demo/react-demo.css';
+import './assets/css/all.min.css';
+import './assets/css/MontserratCallie.css';
+// import './assets/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/style.css';
 
 class App extends React.Component {
   render(){
     return (
       <BrowserRouter>
         <Switch>
+        {/*
           <Route path='/blog' component={BlogIndex} />
           <Route path='/post/:id' component={BlogPost} />
           <Route path='/home' component={Index} />
@@ -33,7 +33,19 @@ class App extends React.Component {
           <Route path='/presentation' component={Presentation} />
           <Route path='/sections' component={Sections} />
           {/*<Route path="/" render={props => <Index {...props} />} />*/}
-          <Redirect to='/blog' />
+          <Route path='/' component={HomeView} />
+          <Route path='/regular' component={RegularView} />
+          <Route path='/contact' component={ContactView} />
+          <Route path='/about' component={AboutView} />
+          <Route path='/author' component={AuthorView} />
+          <Route path='/blog/:id' component={BlogPostView} />
+          {/*
+          render={( {blog}: BlogPageProps) => (
+            <BlogPostView id={blog.params.id} /> )} />
+          */}
+          <Route path='/blog-index' component={BlogIndexView} />
+          <Route path='/category' component={CategoryView} />
+          <Redirect to='/blog-index' />
         </Switch>
       </BrowserRouter>
     );

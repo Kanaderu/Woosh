@@ -23,7 +23,7 @@ from wagtail.snippets.blocks import SnippetChooserBlock
 from wagtail.api import APIField
 
 from woosh_utils.blocks import STANDARD_BLOCKS
-from woosh_utils.serializers import HeaderImageSerializer
+from woosh_utils.serializers import HeaderImageSerializer, AuthorSerializer
 
 
 def limit_author_choices():
@@ -55,7 +55,6 @@ class BlogPage(Page):
     header_image = models.ForeignKey(
         get_image_model_string(),
         null=True,
-        blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
         verbose_name=_('Header Image'),
@@ -63,11 +62,11 @@ class BlogPage(Page):
     )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        blank=True, null=True,
+        null=True,
         limit_choices_to=limit_author_choices,
         verbose_name=_('Author'),
         on_delete=models.SET_NULL,
-        related_name='author_pages',
+        related_name='author_blog_pages',
     )
 
     # define content_panels (content tab)
@@ -108,7 +107,12 @@ class BlogPage(Page):
         APIField('intro'),
         APIField('header_image', serializer=HeaderImageSerializer()),
         APIField('body'),
+        APIField('author', serializer=AuthorSerializer()),
     ]
+
+    # Parent page / subpage type rules
+    parent_page_types = ['blog.BlogIndexPage']
+    subpage_types = []
 
     # define verbose names
     class Meta:
@@ -131,6 +135,15 @@ class BlogIndexPage(Page):
     api_fields = [
         APIField('intro'),
     ]
+
+    # Parent page / subpage type rules
+    parent_page_types = ['wagtailcore.Page'] # parents of root only
+    subpage_types = ['blog.BlogPage']
+
+    @classmethod
+    def can_create_at(cls, parent):
+        # You can only create one of these!
+        return super(BlogIndexPage, cls).can_create_at(parent) and not cls.objects.exists()
 
 
 @register_snippet

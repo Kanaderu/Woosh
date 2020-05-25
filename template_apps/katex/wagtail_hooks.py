@@ -157,7 +157,7 @@ def register_monospace_feature(features):
     features.default_features.append(feature_name)
     features.register_converter_rule('contentstate', feature_name, db_conversion)
 
-
+'''
 @hooks.register('register_rich_text_features')
 def register_katex_feature(features):
     feature_name = 'katex'
@@ -189,3 +189,4 @@ def register_katex_feature(features):
 
     features.default_features.append(feature_name)
     features.register_converter_rule('contentstate', feature_name, db_conversion)
+'''
