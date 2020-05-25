@@ -4,12 +4,6 @@ import { Service } from '../types/Service';
 import { BlogPostAPI } from '../types/BlogPostAPI';
 import Settings from '../constants';
 
-/*
-export interface BlogPostService {
-  results: BlogPostAPI;
-}
-*/
-
 const useGetBlogPostService = (id:number) => {
   const [result, setResult] = useState<Service<BlogPostAPI>>({
     status: 'loading'

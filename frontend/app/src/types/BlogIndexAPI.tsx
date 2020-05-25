@@ -1,6 +1,6 @@
 import ImageAPI from './ImageAPI';
 import Author from './Author';
-import {MetaAPI, IndexMetaAPI} from './BaseAPI';
+import { MetaAPI, IndexMetaAPI } from './BaseAPI';
 
 export interface BlogIndexAPI {
   items: BlogIndexDataAPI[];

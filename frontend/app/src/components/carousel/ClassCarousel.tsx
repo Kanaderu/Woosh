@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BodyAPI } from '../../types/BaseAPI';
 import {
   Carousel,
   CarouselItem,
@@ -16,45 +17,38 @@ import img4 from '../../assets/img/img4.jpg';
 import img6 from '../../assets/img/img6.jpg';
 import vid from '../../assets/img/video.mp4';
 
-const items = [
-  {
-    id: 1,
-    src: img1,
-    altText: 'Slide 1',
-    caption: 'Slide 1'
-  },
-  {
-    id: 2,
-    src: img2,
-    altText: 'Slide 2',
-    caption: 'Slide 2'
-  },
-  {
-    id: 3,
-    src: img3,
-    altText: 'Slide 3',
-    caption: 'Slide 3'
-  },
-  {
-    id: 4,
-    src: img4,
-    altText: 'Slide 4',
-    caption: 'Slide 4',
-    // header: 'Slide 4 Header',
-  },
-  {
-    id: 5,
-    src: img6,
-    altText: 'Slide 5',
-    caption: 'Slide 5',
-    // header: 'Slide 4 Header',
-  }
-];
+// const items = [
+//   {
+//     id: 1,
+//     src: img1,
+//     altText: 'Slide 1',
+//     caption: 'Slide 1'
+//   },
+//   {
+//     id: 2,
+//     src: img1,
+//     altText: 'Slide 2',
+//     caption: 'Slide 2'
+//   },
+// ];
 
-// const ClassCarousel = (props) => {
-const ClassCarousel = () => {
+export interface CallieCarouselProps  {
+  images: BodyAPI[]
+}
+
+const CallieCarousel: React.FC<CallieCarouselProps> = ({images}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+
+  // convert images to items
+  const items = images.map((image, key) => {
+    return {
+      id: key,
+      src: image.value.url,
+      altText: image.value.title,
+      caption: image.value.title,
+    }
+  })
 
   const next = () => {
     if (animating) {
@@ -82,7 +76,7 @@ const ClassCarousel = () => {
   const slides = items.map((item) => {
     return (
       <CarouselItem
-        className="custom-tag"
+        className="carousel-items"
         tag="div"
         key={item.id}
         onExiting={() => setAnimating(true)}
@@ -104,7 +98,7 @@ const ClassCarousel = () => {
     <div>
       <style>
         {
-          `.custom-tag {
+          `.carousel-items {
               width: 100vw;
               height: 100vh;
               background: black;
@@ -125,4 +119,4 @@ const ClassCarousel = () => {
   );
 }
 
-export default ClassCarousel;
+export default CallieCarousel;

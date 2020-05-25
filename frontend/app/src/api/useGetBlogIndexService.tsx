@@ -4,12 +4,6 @@ import { BlogIndexAPI } from '../types/BlogIndexAPI';
 
 import Settings from '../constants';
 
-/*
-export interface BlogIndexService {
-  results: BlogIndexAPI;
-}
-*/
-
 const useGetBlogIndexService = () => {
   const [result, setResult] = useState<Service<BlogIndexAPI>>({
     status: 'loading'

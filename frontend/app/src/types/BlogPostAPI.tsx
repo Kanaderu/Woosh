@@ -1,6 +1,6 @@
 import ImageAPI from './ImageAPI';
 import Author from './Author';
-import {BodyAPI, MetaAPI} from './BaseAPI';
+import { BodyAPI, MetaAPI } from './BaseAPI';
 
 export interface BlogPostAPI {
   author: Author;

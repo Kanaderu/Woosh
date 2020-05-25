@@ -1,21 +1,17 @@
 import React from 'react';
-
-import header from '../../assets/img/header-2.jpg';
-
+import { BodyAPI } from '../../types/BaseAPI';
 import ClassCarousel from '../carousel/ClassCarousel';
 
-import {
-  Container,
-  Row,
-} from 'reactstrap';
+export interface CarouselHeaderProps  {
+  images: BodyAPI[]
+}
 
-
-const RegularHeader: React.FC<{}> = () => {
+const CarouselHeader: React.FC<CarouselHeaderProps> = ({images}) => {
   return (
     <>
-      <ClassCarousel />
+      <ClassCarousel images={images} />
     </>
   );
 }
 
-export default RegularHeader;
+export default CarouselHeader;
