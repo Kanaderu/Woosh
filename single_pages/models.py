@@ -106,7 +106,16 @@ class HomePage(Page):
 
 @register_snippet
 class SocialSnippet(models.Model):
-    # type = models.Ch
+
+    class Social(models.TextChoices):
+        FACEBOOK = 'FB', _('Facebook')
+        GOOGLE_PLUS = 'GP', _('Google+')
+        TWITTER = 'TW', _('Twitter')
+        IG = 'IG', _('Instagram')
+        SNAPCHAT = 'SC', _('Snapchat')
+        EMAIL = 'EM', _('Email')
+
+    type = models.CharField(max_length=2, choices=Social.choices, default=Social.FACEBOOK)
     url = models.CharField(max_length=255)
 
     def __str__(self):
