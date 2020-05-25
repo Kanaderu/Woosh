@@ -1,6 +1,6 @@
 import { MetaAPI, IndexMetaAPI } from './BaseAPI';
 
-export interface HomePageIndexAPI {
+export interface SocialIndexAPI {
   items: SocialAPI[];
   meta: IndexMetaAPI;
 };
@@ -8,7 +8,7 @@ export interface HomePageIndexAPI {
 export interface SocialAPI {
   id: number;
   meta: MetaAPI;
-  title: string;
+  url: string;
   platform: string;
 };
 

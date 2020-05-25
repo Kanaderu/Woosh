@@ -3,20 +3,31 @@ import React from 'react';
 import CallieNavbar from '../components/navbars/Navbar';
 import CallieFooter from '../components/footers/Footer';
 
-// import RegularHeader from '../components/headers/RegularHeader';
 import CarouselHeader from '../components/headers/CarouselHeader';
 import HomePage from '../pages/HomePage';
 
 import HomePageAPI from '../types/HomePageAPI';
+import SocialAPI from '../types/SocialAPI';
 import useGetHomePageService from '../api/useGetHomePageService';
+import useGetSocialSerivce from '../api/useGetSocialService';
 
 const HomeView: React.FC<{}> = () => {
-  var posts: HomePageAPI[] = [];
-  const results = useGetHomePageService();
+  var home: HomePageAPI[] = [];
+  var social: SocialAPI[] = [];
 
-  if(results.status == "loaded"){
-    posts = results.payload.items;
-    console.log(posts);
+  const resultsHome = useGetHomePageService();
+  const resultsSocial = useGetSocialSerivce();
+
+  if(resultsSocial.status == "loaded"){
+    social = resultsSocial.payload.items;
+    console.log(social);
+  } else {
+    // handle state while loading
+  }
+
+  if(resultsHome.status == "loaded"){
+    home = resultsHome.payload.items;
+    console.log(home);
   } else {
     // handle state while loading
   }
@@ -24,11 +35,11 @@ const HomeView: React.FC<{}> = () => {
   return (
     <>
       <CallieNavbar>
-        {posts.length > 0 &&
-          <CarouselHeader images={posts[0].carousel_images} />
+        {home.length > 0 &&
+          <CarouselHeader images={home[0].carousel_images} />
         }
       </CallieNavbar>
-      <HomePage posts={posts}/>
+      <HomePage posts={home}/>
       <CallieFooter />
     </>
   );
