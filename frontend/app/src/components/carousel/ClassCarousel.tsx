@@ -8,13 +8,6 @@ import {
   CarouselCaption
 } from 'reactstrap';
 
-import altLogo from '../../../assets/img/logo-alt.png';
-import img from '../../assets/img/media-1.jpg';
-import img1 from '../../assets/img/img1.jpg';
-import img2 from '../../assets/img/img2.jpg';
-import img3 from '../../assets/img/img3.jpg';
-import img4 from '../../assets/img/img4.jpg';
-import img6 from '../../assets/img/img6.jpg';
 import vid from '../../assets/img/video.mp4';
 
 // const items = [
@@ -82,8 +75,8 @@ const CallieCarousel: React.FC<CallieCarouselProps> = ({images}) => {
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
       >
-        <img height="100%" width="100%" src={item.src} alt={item.altText} />
-        // <video height="100%" width="100%">
+        <img width="100%" src={item.src} alt={item.altText} />>
+        // <video autoPlay muted loop height="100%" width="100%">
         //     <source src={vid} type="video/mp4" />
         //     Sorry, your browser doesn't support embedded videos.
         // </video>
