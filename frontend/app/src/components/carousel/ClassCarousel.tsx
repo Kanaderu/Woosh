@@ -76,10 +76,12 @@ const CallieCarousel: React.FC<CallieCarouselProps> = ({images}) => {
         onExited={() => setAnimating(false)}
       >
         <img width="100%" src={item.src} alt={item.altText} />>
-        // <video autoPlay muted loop height="100%" width="100%">
-        //     <source src={vid} type="video/mp4" />
-        //     Sorry, your browser doesn't support embedded videos.
-        // </video>
+        {/*
+        <video autoPlay muted loop height="100%" width="100%">
+            <source src={vid} type="video/mp4" />
+            Sorry, your browser doesn't support embedded videos.
+        </video>
+        */}
         <div className="text-center">
           <CarouselCaption className="text-danger" captionText={item.caption} captionHeader={item.caption} />
         </div>
