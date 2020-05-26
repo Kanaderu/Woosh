@@ -6,7 +6,8 @@ import NewsletterWidget from '../components/widgets/NewsletterWidget';
 import PostContent from '../components/sections/PostContent';
 import Typography from '../components/sections/Typography';
 
-import { HomePageAPI } from '../types/HomePageAPI';
+import HomePageAPI from '../types/HomePageAPI';
+import SocialAPI from '../types/SocialAPI';
 
 import {
   Container,
@@ -15,10 +16,11 @@ import {
 } from 'reactstrap';
 
 export interface HomePageProps  {
-  posts: HomePageAPI[]
+  entry: HomePageAPI[];
+  social?: SocialAPI[];
 }
 
-const HomePage: React.FC<HomePageProps> = ({posts}) => {
+const HomePage: React.FC<HomePageProps> = ({entry, social}) => {
   return (
     <>
     {/* Row */}
@@ -30,8 +32,8 @@ const HomePage: React.FC<HomePageProps> = ({posts}) => {
         {/* Row */}
         <Row>
           <Col md="8">
-            {posts.length > 0 &&
-            <PostContent data={posts[0].body}/>
+            {entry.length > 0 &&
+            <PostContent data={entry[0].body}/>
             }
             {/* <Typography /> */}
           </Col>

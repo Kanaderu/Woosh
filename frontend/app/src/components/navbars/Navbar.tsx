@@ -1,25 +1,21 @@
 import React from 'react';
 
-/*
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/main.js"></script>
- */
-
 import NavbarTop from './NavbarTop';
 import NavbarBottom from './NavbarBottom';
 
+import SocialAPI from '../../types/SocialAPI';
+
 export interface NavbarProps  {
-  children?: React.ReactNode
+  social?: SocialAPI[];
+  children?: React.ReactNode;
 }
 
-const Navbar: React.FC<NavbarProps> = ({children}) => {
+const Navbar: React.FC<NavbarProps> = ({children, social}) => {
   return (
     <>
       <header id="header">
         <div id="nav">
-          <NavbarTop />
+          <NavbarTop social={social} />
           <NavbarBottom />
           { children }
         </div>

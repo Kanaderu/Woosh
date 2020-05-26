@@ -20,26 +20,26 @@ const HomeView: React.FC<{}> = () => {
 
   if(resultsSocial.status == "loaded"){
     social = resultsSocial.payload.items;
-    console.log(social);
+    console.log('HomeView:', social);
   } else {
     // handle state while loading
   }
 
   if(resultsHome.status == "loaded"){
     home = resultsHome.payload.items;
-    console.log(home);
+    console.log('HomeView:', home);
   } else {
     // handle state while loading
   }
 
   return (
     <>
-      <CallieNavbar>
+      <CallieNavbar social={social}>
         {home.length > 0 &&
           <CarouselHeader images={home[0].carousel_images} />
         }
       </CallieNavbar>
-      <HomePage posts={home}/>
+      <HomePage entry={home} social={social} />
       <CallieFooter />
     </>
   );
