@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'reactstrap';
 
-import SocialAPI from '../../types/SocialAPI';
+import SocialAPI, { platformToFontAwesome } from '../../types/SocialAPI';
 
 import logo from '../../assets/img/logo.png';
 
@@ -11,35 +11,12 @@ export interface NavbarTopProps  {
 
 const NavbarTop: React.FC<NavbarTopProps> = ({social}) => {
 
-  console.log('NavbarTop:', social)
-
   const renderSocial = social != undefined &&
     <ul className="nav-social">
     {
       social.map((entry, key) => {
-        var icon = "fas fa-envelope";
-        switch(entry.platform){
-          case "Facebook":
-            icon = "fab fa-facebook";
-            break;
-          case "Google+":
-            icon = "fab fa-google-plus";
-            break;
-          case "Twitter":
-            icon = "fab fa-twitter";
-            break;
-          case "Instagram":
-            icon = "fab fa-instagram";
-            break;
-          case "Snapchat":
-            icon = "fab fa-snapchat";
-            break;
-          default:
-          // case "Email":
-            icon = "fab fa-envelope";
-            break;
-      }
-      return <li key={key}><a href={entry.url}><i className={icon}></i></a></li>
+        const icon = platformToFontAwesome(entry.platform);
+        return <li key={key}><a href={entry.url}><i className={icon}></i></a></li>
     })}</ul>;
 
   return (
@@ -47,7 +24,7 @@ const NavbarTop: React.FC<NavbarTopProps> = ({social}) => {
       <div id="nav-top">
         <Container>
           {/* social */}
-            {renderSocial}
+          {renderSocial}
           {/* /social */}
 
           {/* logo */}

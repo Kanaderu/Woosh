@@ -20,14 +20,14 @@ const HomeView: React.FC<{}> = () => {
 
   if(resultsSocial.status == "loaded"){
     social = resultsSocial.payload.items;
-    console.log('HomeView:', social);
+    // console.log('HomeView:', social);
   } else {
     // handle state while loading
   }
 
   if(resultsHome.status == "loaded"){
     home = resultsHome.payload.items;
-    console.log('HomeView:', home);
+    // console.log('HomeView:', home);
   } else {
     // handle state while loading
   }
