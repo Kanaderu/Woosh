@@ -33,28 +33,6 @@ const SocialWidget: React.FC<SocialWidgetProps> = ({social}) => {
         </div>
         <div className="social-widget">
           {renderSocial}
-          {/*
-          <ul>
-            <li>
-              <a href="#" className="social-facebook">
-                <i className="fab fa-facebook"></i>
-                <span>21.2K<br />Followers</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="social-twitter">
-                <i className="fab fa-twitter"></i>
-                <span>10.2K<br />Followers</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="social-google-plus">
-                <i className="fab fa-google-plus"></i>
-                <span>5K<br />Followers</span>
-              </a>
-            </li>
-          </ul>
-          */}
         </div>
       </div>
       {/* /social widget */}
