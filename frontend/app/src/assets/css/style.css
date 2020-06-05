@@ -325,13 +325,11 @@ textarea.input {
 
 #nav-top>.container {
   position: relative;
+  min-height: 75px;
 }
 
 #nav-bottom {
-  /* border-top: 65px solid #e8eaed; */
-  /* border-top: 65px solid #FFFFFF; */
-  border-top: 65px solid #FFFFFF;
-  /* border-top: 1px solid #e8eaed; */
+  border-top: 1px solid #e8eaed;
 }
 
 /*----------------------------*\
