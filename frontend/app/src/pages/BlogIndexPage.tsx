@@ -26,7 +26,7 @@ const BlogPage: React.FC<{}> = () => {
   return (
     <>
   	<div className="section">
-      <Container>
+      <Container style={{maxWidth: "1280px"}}>
         {/* left hot-post */}
         <Row style={{marginBottom: "30px"}}>
           {posts.length > 0 &&
@@ -38,10 +38,10 @@ const BlogPage: React.FC<{}> = () => {
           }
           {/* right hot-post */}
           <Col md="4">
-            <Row md="6" style={{paddingLeft: 2, paddingBottom: 1}}>
+            <Row style={{paddingLeft: 2, paddingBottom: 1}}>
               {posts.length > 1 && <PostHot post={posts[1]}/>}
             </Row>
-            <Row md="6" style={{paddingLeft: 2, paddingTop: 1}}>
+            <Row style={{paddingLeft: 2, paddingTop: 1}}>
               {posts.length > 2 && <PostHot post={posts[2]}/>}
             </Row>
           </Col>
