@@ -28,7 +28,6 @@ class App extends React.Component {
           {/* Link order matters here */}
           <Route path='/blog/:id' component={BlogPostView} />
           <Route path='/blog' component={BlogIndexView} />
-          <Route path='/' component={HomeView} />
         {/*
           <Route path='/blog' component={BlogIndex} />
           <Route path='/post/:id' component={BlogPost} />
@@ -46,6 +45,7 @@ class App extends React.Component {
             <BlogPostView id={blog.params.id} /> )} />
           */}
           <Route path='/category' component={CategoryView} />
+          <Route path='/' component={HomeView} />
           <Redirect to='/' />
         </Switch>
       </BrowserRouter>
