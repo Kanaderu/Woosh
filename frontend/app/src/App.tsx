@@ -25,6 +25,10 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
+          {/* Link order matters here */}
+          <Route path='/blog/:id' component={BlogPostView} />
+          <Route path='/blog' component={BlogIndexView} />
+          <Route path='/' component={HomeView} />
         {/*
           <Route path='/blog' component={BlogIndex} />
           <Route path='/post/:id' component={BlogPost} />
@@ -33,19 +37,16 @@ class App extends React.Component {
           <Route path='/presentation' component={Presentation} />
           <Route path='/sections' component={Sections} />
           {/*<Route path="/" render={props => <Index {...props} />} />*/}
-          <Route path='/' component={HomeView} />
           <Route path='/regular' component={RegularView} />
           <Route path='/contact' component={ContactView} />
           <Route path='/about' component={AboutView} />
           <Route path='/author' component={AuthorView} />
-          <Route path='/blog/:id' component={BlogPostView} />
           {/*
           render={( {blog}: BlogPageProps) => (
             <BlogPostView id={blog.params.id} /> )} />
           */}
-          <Route path='/blog-index' component={BlogIndexView} />
           <Route path='/category' component={CategoryView} />
-          <Redirect to='/blog-index' />
+          <Redirect to='/' />
         </Switch>
       </BrowserRouter>
     );
