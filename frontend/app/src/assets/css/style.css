@@ -1410,10 +1410,10 @@ textarea.input {
   margin-bottom: 30px;
 }
 
-.footer-logo .logo {
+.footer-logo .logo img {
   display: inline-block;
-  line-height: 70px;
-  height: 70px;
+  line-height: 65px;
+  height: 65px;
 }
 
 .footer-bottom {

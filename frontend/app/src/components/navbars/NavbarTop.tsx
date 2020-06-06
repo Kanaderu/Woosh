@@ -3,7 +3,9 @@ import { Container } from 'reactstrap';
 
 import SocialAPI, { platformToFontAwesome } from '../../types/SocialAPI';
 
-import logo from '../../assets/img/logo.png';
+import { HomeMenu } from '../../constants';
+
+import logo from '../../assets/logo/logo.png';
 
 export interface NavbarTopProps  {
   social?: SocialAPI[];
@@ -29,7 +31,7 @@ const NavbarTop: React.FC<NavbarTopProps> = ({social}) => {
 
           {/* logo */}
           <div className="nav-logo">
-            <a href="index.html" className="logo"><img src={logo} alt="" /></a>
+            <a href={HomeMenu.url} className="logo"><img src={logo} alt="" /></a>
           </div>
           {/* /logo */}
 

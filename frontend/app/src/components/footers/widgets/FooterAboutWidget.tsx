@@ -1,6 +1,6 @@
 import React from 'react';
 
-import altLogo from '../../../assets/img/logo-alt.png';
+import altLogo from '../../../assets/logo/logo-text-w.png';
 
 const FooterAboutWidget: React.FC<{}> = () => {
   return (
