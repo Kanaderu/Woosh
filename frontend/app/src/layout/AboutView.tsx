@@ -6,7 +6,13 @@ import CallieFooter from '../components/footers/Footer';
 import AboutHeader from '../components/headers/AboutHeader';
 import AboutPage from '../pages/AboutPage';
 
-const BlogView: React.FC<{}> = () => {
+// import HomePageAPI from '../types/HomePageAPI';
+// import useGetHomePageService from '../api/useGetHomePageService';
+
+const AboutView: React.FC<{}> = () => {
+  // var about: AboutPageAPI[] = [];
+
+  // const resultsHome = useGetHomePageService();
 
   return (
     <>
@@ -19,4 +25,4 @@ const BlogView: React.FC<{}> = () => {
   );
 };
 
-export default BlogView;
+export default AboutView;

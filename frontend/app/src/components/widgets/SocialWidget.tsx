@@ -1,12 +1,24 @@
 import React from 'react';
 
 import SocialAPI, { platformToFontAwesome, platformToSocialColor } from '../../types/SocialAPI';
+import useGetSocialSerivce from '../../api/useGetSocialService';
 
 export interface SocialWidgetProps  {
   social?: SocialAPI[];
 }
 
 const SocialWidget: React.FC<SocialWidgetProps> = ({social}) => {
+  if(!social) {
+    const resultsSocial = useGetSocialSerivce();
+
+    if(resultsSocial.status == "loaded"){
+      social = resultsSocial.payload.items;
+      // console.log('Social:', social);
+    } else {
+      // handle state while loading
+    }
+  }
+
   const renderSocial = social != undefined &&
     <ul>
     {

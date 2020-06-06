@@ -7,7 +7,6 @@ import PostContent from '../components/sections/PostContent';
 import Typography from '../components/sections/Typography';
 
 import HomePageAPI from '../types/HomePageAPI';
-import SocialAPI from '../types/SocialAPI';
 
 import {
   Container,
@@ -17,10 +16,9 @@ import {
 
 export interface HomePageProps  {
   entry: HomePageAPI[];
-  social?: SocialAPI[];
 }
 
-const HomePage: React.FC<HomePageProps> = ({entry, social}) => {
+const HomePage: React.FC<HomePageProps> = ({entry}) => {
   return (
     <>
     {/* Row */}
@@ -39,7 +37,7 @@ const HomePage: React.FC<HomePageProps> = ({entry, social}) => {
           </Col>
 
           <Col md="4">
-            <SocialWidget social={social} />
+            <SocialWidget />
             {/* <NewsletterWidget /> */}
           </Col>
         </Row>

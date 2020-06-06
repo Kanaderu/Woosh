@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'reactstrap';
 
 import SocialAPI, { platformToFontAwesome } from '../../types/SocialAPI';
+import useGetSocialSerivce from '../../api/useGetSocialService';
 
 import { HomeMenu } from '../../constants';
 
@@ -12,6 +13,16 @@ export interface NavbarTopProps  {
 }
 
 const NavbarTop: React.FC<NavbarTopProps> = ({social}) => {
+  if(!social) {
+    const resultsSocial = useGetSocialSerivce();
+
+    if(resultsSocial.status == "loaded"){
+      social = resultsSocial.payload.items;
+      // console.log('Social:', social);
+    } else {
+      // handle state while loading
+    }
+  }
 
   const renderSocial = social != undefined &&
     <ul className="nav-social">
@@ -35,7 +46,7 @@ const NavbarTop: React.FC<NavbarTopProps> = ({social}) => {
           </div>
           {/* /logo */}
 
-          {/* search & aside toggle */}
+          {/* search & aside toggle img*/}
           <div className="nav-btns">
             <button className="aside-btn"><i className="fas fa-bars"/></button>
             <button className="search-btn"><i className="fas fa-search"/></button>

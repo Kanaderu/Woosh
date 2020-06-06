@@ -10,18 +10,12 @@ import PostHot from '../components/sections/PostHot';
 import PostCard from '../components/sections/PostCard';
 
 import { BlogIndexDataAPI } from '../types/BlogIndexAPI';
-import useGetBlogIndexService from '../api/useGetBlogIndexService';
 
-const BlogPage: React.FC<{}> = () => {
-  var posts: BlogIndexDataAPI[] = [];
-  const results = useGetBlogIndexService();
+export interface BlogPageProps  {
+  posts: BlogIndexDataAPI[];
+}
 
-  if(results.status == "loaded"){
-    posts = results.payload.items;
-    console.log(posts);
-  } else {
-    // handle state while loading
-  }
+const BlogPage: React.FC<BlogPageProps> = ({posts}) => {
 
   return (
     <>
