@@ -40,7 +40,7 @@ const HomePage: React.FC<HomePageProps> = ({entry, social}) => {
 
           <Col md="4">
             <SocialWidget social={social} />
-            <NewsletterWidget />
+            {/* <NewsletterWidget /> */}
           </Col>
         </Row>
       </Container>

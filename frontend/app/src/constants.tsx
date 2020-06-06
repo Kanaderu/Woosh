@@ -1,3 +1,5 @@
+import { MenuItemType } from './types/MenuType';
+
 type constParams = {
   readonly blogIndexEndpointAPI: string;
   readonly blogPostEndpointAPI: Function;
@@ -16,5 +18,14 @@ const Settings: constParams = {
   siteName: "Pandave",
   siteDescription: "Test site!"
 };
+
+export const HomeMenu: MenuItemType = { title: "Home", url: "/" }
+export const HomeMenuItems: MenuItemType[] = [
+  { title: "HomeLink1", url: "/" },
+];
+
+export const BlogMenu: MenuItemType = { title: "Blog", url: "/blog" }
+
+export const AboutMenu: MenuItemType = { title: "About", url: "/about" }
 
 export default Settings;

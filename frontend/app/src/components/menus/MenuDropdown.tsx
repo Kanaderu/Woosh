@@ -16,20 +16,23 @@ import {
   NavbarText
 } from 'reactstrap';
 
-const MenuDropdown: React.FC<{}> = () => {
+import { MenuItemType } from '../../types/MenuType';
+
+export interface MenuDropdownProps  {
+  title: MenuItemType;
+  links: MenuItemType[];
+}
+
+const MenuDropdown: React.FC<MenuDropdownProps> = ({title, links}) => {
   return (
     <>
       <NavItem className="has-dropdown">
-        <a href="index.html">Home</a>
+        <NavLink href={title.url}>{title.title}</NavLink>
         <div className="dropdown">
           <div className="dropdown-body">
             <ul className="dropdown-list">
-              <li><a href="category.html">Category page</a></li>
-              <li><a href="blog-post.html">Post page</a></li>
-              <li><a href="author.html">Author page</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="contact.html">Contacts</a></li>
-              <li><a href="blank.html">Regular</a></li>
+              {links.map((link) =>
+                <li><NavLink href={link.url}>{link.title}</NavLink></li>)}
             </ul>
           </div>
         </div>

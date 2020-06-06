@@ -104,6 +104,7 @@ class HomePage(Page):
         # You can only create one of these!
         return super(HomePage, cls).can_create_at(parent) and not cls.objects.exists()
 
+
 @register_snippet
 class SocialSnippet(models.Model):
 
