@@ -1,6 +1,6 @@
 from wagtail.api.v2.views import BaseAPIViewSet
-from blog.models import BlogPage, Recipe
-from single_pages.models import HomePage, SocialSnippet, InformationSnippet
+from blog.models import BlogPage
+from single_pages.models import HomePage, SocialSnippet, InformationSnippet, Recipe
 
 
 class HomeAPIViewSet(BaseAPIViewSet):
