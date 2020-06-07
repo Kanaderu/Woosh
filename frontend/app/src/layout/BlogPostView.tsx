@@ -23,10 +23,10 @@ const BlogView: React.FC<BlogViewProps> = ({match}) => {
 
   if(results.status == "loaded"){
     post = results.payload;
-    console.log(post);
+    // console.log(post);
   } else {
     // handle state while loading
-    console.log(results.status)
+    // console.log(results.status)
   }
 
   if(post != null) {

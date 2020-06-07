@@ -5,6 +5,7 @@ type constParams = {
   readonly blogPostEndpointAPI: Function;
   readonly homePageEndpointAPI: string;
   readonly socialEndpointAPI: string;
+  readonly infoEndpointAPI: string;
   readonly siteName: string;
   readonly siteDescription: string;
 };
@@ -14,6 +15,7 @@ const Settings: constParams = {
   blogPostEndpointAPI: (id:number) => ("http://localhost:9090/api/blog/" + id + "/"),
   homePageEndpointAPI: "http://localhost:9090/api/home/",
   socialEndpointAPI: "http://localhost:9090/api/social/",
+  infoEndpointAPI: "http://localhost:9090/api/info/",
 
   siteName: "Pandave",
   siteDescription: "Test site!"

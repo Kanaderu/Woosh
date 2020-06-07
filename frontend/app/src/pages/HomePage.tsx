@@ -29,17 +29,21 @@ const HomePage: React.FC<HomePageProps> = ({entry}) => {
 
         {/* Row */}
         <Row>
-          <Col md="8">
+          {/* <Col md="8"> */}
+          <Col md="12">
             {entry.length > 0 &&
             <PostContent data={entry[0].body}/>
             }
             {/* <Typography /> */}
           </Col>
 
+          {/*
           <Col md="4">
             <SocialWidget />
-            {/* <NewsletterWidget /> */}
+            <NewsletterWidget />
           </Col>
+          */}
+
         </Row>
       </Container>
     </div>

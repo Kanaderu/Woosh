@@ -3,7 +3,7 @@ from wagtail.api.v2.router import WagtailAPIRouter
 from wagtail.images.api.v2.views import ImagesAPIViewSet
 from wagtail.documents.api.v2.views import DocumentsAPIViewSet
 
-from .views import BlogAPIViewSet, RecipeAPIViewSet, HomeAPIViewSet, SocialLinksAPIViewSet
+from .views import BlogAPIViewSet, RecipeAPIViewSet, HomeAPIViewSet, SocialLinksAPIViewSet, InformationAPIViewSet
 
 
 # Create the router. "wagtailapi" is the URL namespace
@@ -22,3 +22,4 @@ api_router.register_endpoint('recipes', RecipeAPIViewSet)
 api_router.register_endpoint('home', HomeAPIViewSet)
 
 api_router.register_endpoint('social', SocialLinksAPIViewSet)
+api_router.register_endpoint('info', InformationAPIViewSet)

@@ -18,7 +18,7 @@ class SocialSnippet(models.Model):
         EMAIL = 'Email', _('Email')
 
     platform = models.CharField(max_length=16, choices=Social.choices, default=Social.FACEBOOK)
-    url = models.CharField(max_length=255)
+    url = models.URLField(max_length=255)
 
     panels = [
         FieldRowPanel([

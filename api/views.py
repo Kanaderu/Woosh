@@ -1,6 +1,6 @@
 from wagtail.api.v2.views import BaseAPIViewSet
 from blog.models import BlogPage, Recipe
-from single_pages.models import HomePage, SocialSnippet
+from single_pages.models import HomePage, SocialSnippet, InformationSnippet
 
 
 class HomeAPIViewSet(BaseAPIViewSet):
@@ -25,3 +25,9 @@ class SocialLinksAPIViewSet(BaseAPIViewSet):
     model = SocialSnippet
     body_fields = BaseAPIViewSet.body_fields + ['platform', 'url']
     listing_default_fields = BaseAPIViewSet.listing_default_fields + ['platform', 'url']
+
+
+class InformationAPIViewSet(BaseAPIViewSet):
+    model = InformationSnippet
+    body_fields = BaseAPIViewSet.body_fields + ['newsletter_info', 'about_footer_info']
+    listing_default_fields = BaseAPIViewSet.listing_default_fields + ['newsletter_info', 'about_footer_info']

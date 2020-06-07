@@ -1,6 +1,26 @@
 import React from 'react';
 
-const NewsletterWidget: React.FC<{}> = () => {
+import InfoAPI from '../../types/InfoAPI';
+import useGetInfoService from '../../api/useGetInfoService';
+
+export interface NewsletterWidgetProps  {
+  info?: InfoAPI[];
+}
+
+const NewsletterWidget: React.FC<NewsletterWidgetProps> = ({info}) => {
+  if(!info) {
+    const resultsInfo = useGetInfoService();
+
+    if(resultsInfo.status == "loaded"){
+      info = resultsInfo.payload.items;
+      // console.log('Info:', info);
+    } else {
+      // handle state while loading
+    }
+  }
+
+  const renderInfo = info != undefined && info.length > 0 && info[0].newsletter_info;
+
   return (
     <>
       {/* newsletter widget */}
@@ -10,7 +30,7 @@ const NewsletterWidget: React.FC<{}> = () => {
         </div>
         <div className="newsletter-widget">
           <form>
-            <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium.</p>
+            <p>{renderInfo}</p>
             <input className="input" placeholder="Enter Your Email" />
             <button className="primary-button">Subscribe</button>
           </form>

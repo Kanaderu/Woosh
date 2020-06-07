@@ -1,21 +1,37 @@
 import React from 'react';
 
 import SocialAPI, { platformToFontAwesome, platformToSocialColor } from '../../../types/SocialAPI';
+import InfoAPI from '../../../types/InfoAPI';
 import useGetSocialSerivce from '../../../api/useGetSocialService';
+import useGetInfoService from '../../../api/useGetInfoService';
+
+import { HomeMenu } from '../../../constants';
 
 import altLogo from '../../../assets/logo/logo-text-w.png';
 
 export interface FooterAboutWidgetProps  {
   social?: SocialAPI[];
+  info?: InfoAPI[];
 }
 
-const FooterAboutWidget: React.FC<FooterAboutWidgetProps> = ({social}) => {
+const FooterAboutWidget: React.FC<FooterAboutWidgetProps> = ({social, info}) => {
   if(!social) {
     const resultsSocial = useGetSocialSerivce();
 
     if(resultsSocial.status == "loaded"){
       social = resultsSocial.payload.items;
       // console.log('Social:', social);
+    } else {
+      // handle state while loading
+    }
+  }
+
+  if(!info) {
+    const resultsInfo = useGetInfoService();
+
+    if(resultsInfo.status == "loaded"){
+      info = resultsInfo.payload.items;
+      // console.log('Info:', info);
     } else {
       // handle state while loading
     }
@@ -30,13 +46,15 @@ const FooterAboutWidget: React.FC<FooterAboutWidgetProps> = ({social}) => {
         return <li key={key}><a href={entry.url} className={color}><i className={icon}></i></a></li>
     })}</ul>;
 
+  const renderInfo = info != undefined && info.length > 0 && info[0].about_footer_info;
+
   return (
     <>
       <div className="footer-widget">
         <div className="footer-logo">
-          <a href="index.html" className="logo"><img src={altLogo} alt="" /></a>
+          <a href={HomeMenu.url} className="logo"><img src={altLogo} alt="" /></a>
         </div>
-        <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
+        <p>{renderInfo}</p>
           {renderSocial}
       </div>
     </>
