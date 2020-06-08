@@ -6,6 +6,8 @@ from django.db.models import Count, Q
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
+from taggit.models import TaggedItemBase
+from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
@@ -26,7 +28,7 @@ from wagtail.api import APIField
 
 from woosh_utils.blocks import STANDARD_BLOCKS
 from woosh_utils.serializers import HeaderImageSerializer, AuthorSerializer
-from blog.serializers import CategorySerializer
+from blog.serializers import CategorySerializer, GallerySerializer
 
 
 def limit_author_choices():
@@ -73,6 +75,7 @@ class BlogPage(Page):
     )
     # categories = models.ManyToManyField('blog.Category', blank=True)
     categories = ParentalManyToManyField('blog.Category', blank=True)
+    tags = ClusterTaggableManager(through='blog.Tag', blank=True)
 
     # define content_panels (content tab)
     content_panels = Page.content_panels + [
@@ -82,8 +85,12 @@ class BlogPage(Page):
                 ImageChooserPanel('header_image'),
             ]),
         ], heading=_('Metadata')),
+        FieldRowPanel([
+            FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
+            FieldPanel('tags'),
+        ], heading='Blog Information'),
+        InlinePanel('gallery_images', label='Gallery Images'),
         FieldPanel('intro'),
-        FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         StreamFieldPanel('body'),
     ]
 
@@ -102,6 +109,8 @@ class BlogPage(Page):
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
         index.SearchField('body'),
+        index.SearchField('tags'),
+        index.SearchField('categories'),
     ]
 
     # define parents
@@ -112,9 +121,11 @@ class BlogPage(Page):
         APIField('date'),
         APIField('intro'),
         APIField('categories', serializer=CategorySerializer()),
+        APIField('tags'),
         APIField('header_image', serializer=HeaderImageSerializer()),
         APIField('body'),
         APIField('author', serializer=AuthorSerializer()),
+        APIField('gallery_images', serializer=GallerySerializer())
     ]
 
     # Parent page / subpage type rules
@@ -167,5 +178,26 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Blog Category"
-        verbose_name_plural = "Blog Categories"
+        verbose_name = _('Blog Category')
+        verbose_name_plural = _('Blog Categories')
+
+
+class Tag(TaggedItemBase):
+    content_object = ParentalKey(
+        'BlogPage',
+        related_name='tagged_items',
+        on_delete=models.CASCADE
+    )
+
+
+class GalleryImage(Orderable):
+    page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    title = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        ImageChooserPanel('image'),
+        FieldPanel('title'),
+    ]
