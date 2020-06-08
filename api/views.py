@@ -17,8 +17,8 @@ class RecipeAPIViewSet(BaseAPIViewSet):
 
 class BlogAPIViewSet(BaseAPIViewSet):
     model = BlogPage
-    body_fields = BaseAPIViewSet.body_fields + ['date', 'title', 'intro', 'header_image', 'author']
-    listing_default_fields = BaseAPIViewSet.listing_default_fields + ['date', 'title', 'intro', 'header_image', 'author']
+    body_fields = BaseAPIViewSet.body_fields + ['date', 'title', 'intro', 'categories', 'header_image', 'author']
+    listing_default_fields = BaseAPIViewSet.listing_default_fields + ['date', 'title', 'intro', 'categories', 'header_image', 'author']
 
 
 class SocialLinksAPIViewSet(BaseAPIViewSet):

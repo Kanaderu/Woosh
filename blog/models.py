@@ -1,10 +1,12 @@
 import datetime
+from django import forms
 from django.db import models
 from django.db.models import Count, Q
 
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, Orderable
@@ -24,6 +26,7 @@ from wagtail.api import APIField
 
 from woosh_utils.blocks import STANDARD_BLOCKS
 from woosh_utils.serializers import HeaderImageSerializer, AuthorSerializer
+from blog.serializers import CategorySerializer
 
 
 def limit_author_choices():
@@ -68,6 +71,8 @@ class BlogPage(Page):
         on_delete=models.SET_NULL,
         related_name='author_blog_pages',
     )
+    # categories = models.ManyToManyField('blog.Category', blank=True)
+    categories = ParentalManyToManyField('blog.Category', blank=True)
 
     # define content_panels (content tab)
     content_panels = Page.content_panels + [
@@ -78,6 +83,7 @@ class BlogPage(Page):
             ]),
         ], heading=_('Metadata')),
         FieldPanel('intro'),
+        FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         StreamFieldPanel('body'),
     ]
 
@@ -105,6 +111,7 @@ class BlogPage(Page):
     api_fields = [
         APIField('date'),
         APIField('intro'),
+        APIField('categories', serializer=CategorySerializer()),
         APIField('header_image', serializer=HeaderImageSerializer()),
         APIField('body'),
         APIField('author', serializer=AuthorSerializer()),
@@ -145,3 +152,20 @@ class BlogIndexPage(Page):
         # You can only create one of these!
         return super(BlogIndexPage, cls).can_create_at(parent) and not cls.objects.exists()
 
+
+@register_snippet
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+    # slug = models.SlugField(unique=True, max_length=80)
+
+    panels = [
+        FieldPanel('name'),
+        # FieldPanel('slug'),
+    ]
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Blog Category"
+        verbose_name_plural = "Blog Categories"

@@ -6,6 +6,7 @@ export interface BlogPostAPI {
   author: Author;
   id: number;
   meta: MetaAPI;
+  categories: string[];
   date: string;
   title: string;
   subtitle: string;

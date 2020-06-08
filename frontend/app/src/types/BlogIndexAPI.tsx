@@ -13,6 +13,7 @@ export interface BlogIndexDataAPI {
   id: number;
   intro: string;
   meta: MetaAPI;
+  categories: string[];
   title: string;
   header_image: ImageAPI;
 };

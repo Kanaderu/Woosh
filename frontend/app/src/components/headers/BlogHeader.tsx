@@ -11,6 +11,8 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({post}) => {
   const postDate = new Date(post.date);
   const postDateString = postDate.getDate()+1 + " " + month[postDate.getMonth()] + " " + postDate.getFullYear();
 
+  const postCategories = <div className="post-category">{post.categories.map((category, key) => <a key={key}> {category}</a>)}</div>;
+
   return (
     <>
       <div id="post-header" className="page-header">
@@ -18,9 +20,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({post}) => {
   			<div className="container">
   				<div className="row">
   					<div className="col-md-10">
-  						<div className="post-category">
-  							<a href="category.html">Lifestyle</a>
-  						</div>
+              {postCategories}
   						<h1>{post.title}</h1>
   						<ul className="post-meta">
   							<li><a href="author.html">{post.author.username}</a></li>

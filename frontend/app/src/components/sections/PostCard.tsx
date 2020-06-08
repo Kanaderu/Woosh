@@ -16,6 +16,7 @@ const PostCard: React.FC<PostCardProps> = ({post}: PostCardProps) => {
   const postDateString = postDate.getDate()+1 + " " + month[postDate.getMonth()] + " " + postDate.getFullYear();
 
   const postURL = "/blog/" + post.id;
+  const postCategories = <div className="post-category">{post.categories.map((category, key) => <a key={key}> {category}</a>)}</div>;
 
   return (
     <>
@@ -23,9 +24,7 @@ const PostCard: React.FC<PostCardProps> = ({post}: PostCardProps) => {
 				<div className="post">
 					<a className="post-img" href={postURL}><img src={"http://localhost:9090"+post.header_image.url} alt=""/></a>
 					<div className="post-body">
-						<div className="post-category">
-							<a href="category.html">Lifestyle</a>
-						</div>
+            {postCategories}
 						<h3 className="post-title"><a href={postURL}>{post.title}</a></h3>
 						<ul className="post-meta">
               {/* check if author exists */
