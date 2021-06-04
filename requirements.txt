@@ -1,4 +1,4 @@
-Django==3.0.7
+Django==3.1.9
 graphene-django==2.10.1
 wagtail==2.9
 wagtailcodeblock==1.17.1.0
